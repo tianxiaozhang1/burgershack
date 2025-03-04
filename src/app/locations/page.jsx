@@ -22,8 +22,7 @@ const locationButton = `py-1.5 text-base px-3 border-2 rounded-2xl cursor-pointe
 const selectedButtons = `border-mainText text-mainText hover:bg-mainText hover:text-stone-100`
 const unselectedButtons = `border-stone-400 text-stone-500 hover:bg-stone-400 hover:text-white`
 
-const GoogleMapsAPIKey = "AIzaSyDOZBejFfHiyNmJRAymE3GaCQDzIUKNr1U"
-// process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY
+const GoogleMapsAPIKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY
 
 const PinIcon = () => {
     return (
