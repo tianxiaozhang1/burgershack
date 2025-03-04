@@ -5,18 +5,6 @@ import Image from "next/image";
 import localFont from 'next/font/local'
 import { APIProvider, Map, MapCameraChangedEvent, AdvancedMarker, Pin, InfoWindow, useAdvancedMarkerRef, MapControl, useMap, MapCameraProps } from '@vis.gl/react-google-maps';
 
-import {
-    PlaceReviews,
-    PlaceDataProvider,
-    PlaceDirectionsButton,
-    IconButton,
-    PlaceOverview,
-    SplitLayout,
-    OverlayLayout,
-    PlacePicker,
-    
-} from "@googlemaps/extended-component-library/react";
-
 import { Graduate, Patua_One, Inter } from 'next/font/google'
 const patua_one = Patua_One({ subsets: ['latin'], weight: ['400'], })
 const inter = Inter({ subsets: ['latin'], weight: ['400'], })
@@ -27,10 +15,6 @@ const bkSans = localFont({ src: '../../fonts/FlameSans-Regular.ttf' })
 
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
-
-// import PNGCOMP from '../../components/PNGCOMP';
-// import Motorbike from '../../images/Motorbike.svg'
-// import Food from '../../images/Food.svg'
 
 import LogoPNG from '../../images/shacklogo2.png'
 
