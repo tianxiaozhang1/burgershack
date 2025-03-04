@@ -16,6 +16,7 @@ const bkSans = localFont({ src: '../../fonts/FlameSans-Regular.ttf' })
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import LogoPNG from '../../images/shacklogo2.png'
+import MapScreen from '../../images/MapScreen.png'
 
 const DEFAULT_CENTER = { lat: 43.656520438353645, lng: -79.38076436519623 }
 const locationButton = `py-1.5 text-base px-3 border-2 rounded-2xl cursor-pointer flex`
@@ -129,9 +130,9 @@ function Locations() {
             <Header/>
 
             <div className='lg:flex lg:justify-center h-full w-full lg:w-[1020px] xl:w-[1278px] 2xl:w-[1532px] mx-auto overflow-hidden lg:py-4'>
-                <div className='hidden lg:flex lg:w-1/3 xl:w-1/4 h-full mr-2'>
-                    <div className='px-2 space-y-2 w-full overflow-y-scroll'>
-                        <div className={`bg-mainText text-2xl text-center py-3 rounded-xl text-mainBG ${bkReg.className}`}>Restaurants</div>
+                <div className='flex lg:w-1/3 xl:w-1/4 h-full mr-2 overflow-y-scroll'>
+                    <div className='px-2 space-y-2 w-[400px] mx-auto'>
+                        <div className={`bg-mainText text-2xl text-center py-3 rounded-xl text-mainBG mt-4 lg:mt-0 ${bkReg.className}`}>Restaurants</div>
                         {locationInfo.map((location, i) => {
                             return (
                                 <div key={i} className={`bg-white text-xl w-full border-2 cursor-pointer ${location.indexSq === highlightLocation ? "border-mainText" : "border-stone-200"} rounded-xl w-full px-3 py-3 ${bkReg.className}`}
@@ -178,7 +179,17 @@ function Locations() {
                     </div>
                 </div>
 
-                <div className='p-0 lg:rounded-3xl overflow-hidden h-full shadow-sm w-full lg:w-2/3 xl:w-3/4 mb-16 lg:border-4 lg:border-[#8c5134]'>
+                <div className='hidden lg:flex relative overflow-hidden h-full shadow-sm w-full lg:w-2/3 xl:w-3/4  lg:rounded-3xl lg:border-4 lg:border-[#8c5134]'>
+                    <div className='scale-150 flex justify-center items-center'>
+                        <Image
+                            src={MapScreen}
+                            alt="Map"
+                            className='object-none scale-150'
+                        />
+                    </div>
+                </div>
+
+                <div className='hidden overflow-hidden h-full shadow-sm w-full lg:w-2/3 xl:w-3/4 mb-16 lg:rounded-3xl lg:border-4 lg:border-[#8c5134]'>
                     <Map
                     id="gmap"
                         mapId="4f80392ebc568740"
