@@ -69,8 +69,8 @@ const SmallMidOrderButtons = () => {
                 </div>
             </div>
             <div className="md:flex w-full">
-                <a href='/menu'>
-                    <div className={`md:w-1/2 bg-mainGreen text-stone-100 hover:text-white
+                <a href='/menu' className='md:w-1/2'>
+                    <div className={` bg-mainGreen text-stone-100 hover:text-white
                                         py-2 font-bold text-lg
                                     flex justify-center mx-2 rounded-3xl my-2 cursor-pointer
                                     ${patua_one.className}`}>
@@ -82,8 +82,8 @@ const SmallMidOrderButtons = () => {
                         COME ON IN
                     </div>
                 </a>
-                <a href='/menu'>
-                    <div className={`md:w-1/2 bg-red-600 text-stone-100 hover:text-white
+                <a href='/menu' className='md:w-1/2'>
+                    <div className={` bg-red-600 text-stone-100 hover:text-white
                                         py-2 lg:py-3 px-4 font-bold text-lg lg:text-2xl
                                     flex justify-center mx-2 rounded-3xl my-2 cursor-pointer
                                     ${patua_one.className}`}>
