@@ -18,6 +18,15 @@ import Footer from '../../components/Footer';
 import LogoPNG from '../../images/shacklogo2.png'
 import MapScreen from '../../images/MapScreen.png'
 
+import Location1 from '../../images/maps/1.png'
+import Location2 from '../../images/maps/2.png'
+import Location3 from '../../images/maps/3.png'
+import Location4 from '../../images/maps/4.png'
+import Location5 from '../../images/maps/5.png'
+import Location6 from '../../images/maps/6.png'
+import Location7 from '../../images/maps/7.png'
+import Location8 from '../../images/maps/8.png'
+
 const DEFAULT_CENTER = { lat: 43.656520438353645, lng: -79.38076436519623 }
 const locationButton = `py-1.5 text-base px-3 border-2 rounded-2xl cursor-pointer flex`
 const selectedButtons = `border-mainText text-mainText hover:bg-mainText hover:text-stone-100`
@@ -43,14 +52,14 @@ const StoreIcon = () => {
 }
 
 let locationInfo = [
-    {name:"Yonge & Dundas", address:"10 Dundas St E Toronto, ON M5B 2G9", schedule:"1", indexSq: 1, latlng:{lat: 43.656520438353645, lng: -79.38076436519623}}, 
-    {name:"Yorkville", address:"180 Bloor St W Toronto, ON M5S 1T6", schedule:"1", indexSq: 2, latlng:{lat: 43.66872342576286, lng: -79.39483188088104}}, 
-    {name:"Union", address:"65 Front St W, Toronto, ON M5J 1E6", schedule:"1", indexSq: 3, latlng:{lat: 43.64518652961984, lng: -79.38142955303192}}, 
-    {name:"Distillery District", address:"6 Case Goods Lane, Toronto, ON M5A 3C4", schedule:"1", indexSq: 4, latlng:{lat: 43.64994450880027, lng: -79.35910820960999}}, 
-    {name:"Chinatown", address:"473 Dundas St W, Toronto, ON M5T 1G8", schedule:"1", indexSq: 5, latlng:{lat: 43.65305062634664, lng: -79.39684689044952}}, 
-    {name:"Cabbagetown", address:"516 Parliament St Toronto, ON M4X 1P4", schedule:"1", indexSq: 6, latlng:{lat: 43.66573154481952, lng: -79.36877891421318}}, 
-    {name:"King & Spadina", address:"435 King St W, Toronto, ON M5V 3M4", schedule:"1", indexSq: 7, latlng:{lat: 43.64526222548787, lng: -79.39548164606094}}, 
-    {name:"Sherbourne", address:"236 Sherbourne St, Toronto, ON M5A 3X2", schedule:"1", indexSq: 8, latlng:{lat: 43.65810391009144, lng: -79.37123984098434}}, 
+    {name:"Yonge & Dundas", address:"10 Dundas St E Toronto, ON M5B 2G9", schedule:"1", indexSq: 1, image:Location1, latlng:{lat: 43.656520438353645, lng: -79.38076436519623}}, 
+    {name:"Yorkville", address:"180 Bloor St W Toronto, ON M5S 1T6", schedule:"1", indexSq: 2, image:Location2, latlng:{lat: 43.66872342576286, lng: -79.39483188088104}}, 
+    {name:"Union", address:"65 Front St W, Toronto, ON M5J 1E6", schedule:"1", indexSq: 3, image:Location3, latlng:{lat: 43.64518652961984, lng: -79.38142955303192}}, 
+    {name:"Distillery District", address:"6 Case Goods Lane, Toronto, ON M5A 3C4", schedule:"1", indexSq: 4, image:Location4, latlng:{lat: 43.64994450880027, lng: -79.35910820960999}}, 
+    {name:"Chinatown", address:"473 Dundas St W, Toronto, ON M5T 1G8", schedule:"1", indexSq: 5, image:Location5, latlng:{lat: 43.65305062634664, lng: -79.39684689044952}}, 
+    {name:"Cabbagetown", address:"516 Parliament St Toronto, ON M4X 1P4", schedule:"1", indexSq: 6, image:Location6, latlng:{lat: 43.66573154481952, lng: -79.36877891421318}}, 
+    {name:"King & Spadina", address:"435 King St W, Toronto, ON M5V 3M4", schedule:"1", indexSq: 7, image:Location7, latlng:{lat: 43.64526222548787, lng: -79.39548164606094}}, 
+    {name:"Sherbourne", address:"236 Sherbourne St, Toronto, ON M5A 3X2", schedule:"1", indexSq: 8, image:Location8, latlng:{lat: 43.65810391009144, lng: -79.37123984098434}}, 
 ];
 
 const MarkerWithInfoWindow = ({position, name, address}) => {
@@ -78,7 +87,7 @@ const MarkerWithInfoWindow = ({position, name, address}) => {
           position={position}
           onClick={handleMarkerClick}          
         >
-            <Image src={LogoPNG} alt="X" className='w-18 xl:w-22' />
+            <Image src={LogoPNG} alt="X" className='w-18 xl:w-28' />
         </AdvancedMarker>
   
         {infoWindowShown && (
@@ -112,7 +121,7 @@ function Locations() {
         setHighlightLocation(location.indexSq);
         setCameraProps({
             center: location.latlng,
-            zoom: 17
+            zoom: 18
           })
     }
 
@@ -124,12 +133,82 @@ function Locations() {
     const [cameraProps, setCameraProps] = useState(INITIAL_CAMERA)
     const handleCameraChange = useCallback(ev => setCameraProps(ev.detail))
     
+    const categoryBanner = "h-18 md:h-20 lg:h-22 xl:h-32 2xl:h-42 text-2xl lg:text-3xl xl:text-4xl flex justify-center items-center cursor-default"
+
     return (
         <div className='h-dvh w-full flex flex-col justify-between bg-stone-100 overflow-hidden'>
             <APIProvider apiKey={GoogleMapsAPIKey}>
             <Header/>
 
-            <div className='lg:flex lg:justify-center h-full w-full lg:w-[1020px] xl:w-[1278px] 2xl:w-[1532px] mx-auto overflow-hidden lg:py-4'>
+            <div className={`bg-mainText ${bkReg.className} ${categoryBanner}`}>
+                <div className='text-mainBG'>Locations</div>
+            </div>
+
+            {/* SCREEN SHOT GRID SOLUTION */}             
+            <div className='overflow-y-scroll w-full h-full flex justify-center z-20'>
+                <div className='mt-4 mb-2  lg:mt-4 px-6 lg:max-w-6xl lg:px-2 xl:px-0 xl:max-w-7xl mx-auto grid gap-y-2 md:gap-y-2 md:grid md:grid-cols-1  lg:grid-cols-2 lg:scale-100 md:gap-x-2 lg:grid xl:grid-cols-3 lg:gap-x-3 xl:gap-3'> 
+                        {locationInfo.map((location, i) => {
+                            return (
+                                <div key={i} className={`bg-white text-xl mx-0 border-2 cursor-pointer md:w-[400px] ${location.indexSq === highlightLocation ? "border-mainText" : "border-stone-200"} rounded-xl w-full px-3 py-3 ${bkReg.className}`}
+                                    onClick={(e)=>{handleButtonClick(location)}}
+                                >
+                                    <div className='flex'>
+                                        
+                                        <div className={`flex ${location.indexSq === highlightLocation ? "text-mainText" : "text-stone-600"}`}>
+                                            <div className='mt-0.5'><StoreIcon/></div>
+                                            <div className='cursor-pointer'>{location.name}</div>
+                                        </div>
+                                        <div className={`hidden 2xl:flex ${location.indexSq === highlightLocation ? "bg-mainGreen" : "bg-[#779649]"} text-base py-0.5 px-2 rounded-xl ml-2 mt-0.25 text-stone-50`}>Open Now</div>
+                                    </div>
+                                    <div className={`text-mainText mt-1`}>
+
+                                        <div className='flex'>
+                                            <div className={`${location.indexSq === highlightLocation ? "text-[#4994C4]" : "text-[#106898]"} mt-1 mr-1`}><PinIcon/></div>
+                                            <h2 className={`font-semibold pt-1 text-base text-stone-600 cursor-pointer leading-4 mt-1 ${patua_one.className}`}>{location.address}</h2>
+                                        </div>
+
+                                        <div className={`flex ${bkReg.className} space-x-1 mt-2`}>
+                                            <div className={`hidden 2xl:flex ${locationButton} ${location.indexSq === highlightLocation ? `${selectedButtons}` : `${unselectedButtons}`}`}>
+                                                <div className='mt-0'>Visit Us</div>
+                                            </div>
+
+                                            <div className={` 2xl:hidden text-stone-50 ${locationButton} border-0 ${location.indexSq === highlightLocation ? "bg-mainGreen" : "bg-[#779649]"}`}>
+                                                <div className='mt-0'>Open</div>
+                                            </div>
+
+                                            <div className={`${locationButton} ${location.indexSq === highlightLocation ? `${selectedButtons}` : `${unselectedButtons}`}`}>
+                                                <div className='hidden 2xl:flex'>Order Online</div>
+                                                <div className='2xl:hidden'>Order</div>
+                                            </div>
+
+                                            <div className={`${locationButton} ${location.indexSq === highlightLocation ? `${selectedButtons}` : `${unselectedButtons}`}`}>
+                                                <div className='hidden 2xl:flex'>Call Us</div>
+                                                <div className='2xl:hidden'>Call</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div className={`w-full mt-4 rounded-lg border-2 overflow-hidden ${location.indexSq === highlightLocation ? `border-[#8c5134]` : `border-stone-200`}`}>
+                                        <Image
+                                            src={location.image}
+                                            className="w-full"
+                                            alt={location.name}
+                                        />
+                                    </div>
+                                </div>
+                            )
+                        })}
+                    
+                </div>
+            </div>
+            
+            {/* SPACE FILLER */}
+            <div className='w-full h-4 lg:h-6 z-10'></div>
+
+            {/* LIVE MAP SOLUTION - HIDDEN   */}
+            <div className='hidden lg:justify-center h-full w-full lg:w-[1020px] xl:w-[1278px] 2xl:w-[1532px] mx-auto overflow-hidden lg:py-4'> 
+            {/* lg:flex */}
+                {/* LIVE MAP SOLUTION LEFT COLUMN */}
                 <div className='flex lg:w-1/3 xl:w-1/4 h-full mr-2 overflow-y-scroll'>
                     <div className='px-2 space-y-2 w-[400px] mx-auto'>
                         <div className={`bg-mainText text-2xl text-center py-3 rounded-xl text-mainBG mt-4 lg:mt-0 ${bkReg.className}`}>Restaurants</div>
@@ -179,7 +258,8 @@ function Locations() {
                     </div>
                 </div>
 
-                <div className='hidden lg:flex relative overflow-hidden h-full shadow-sm w-full lg:w-2/3 xl:w-3/4  lg:rounded-3xl lg:border-4 lg:border-[#8c5134]'>
+                {/* TEMPORARY FULL SCREEN IMAGE SOLUTION */}
+                <div className='hidden relative overflow-hidden h-full shadow-sm w-full lg:w-2/3 xl:w-3/4  lg:rounded-3xl lg:border-4 lg:border-[#8c5134]'>
                     <div className='scale-150 flex justify-center items-center'>
                         <Image
                             src={MapScreen}
@@ -188,8 +268,9 @@ function Locations() {
                         />
                     </div>
                 </div>
-
-                <div className='hidden overflow-hidden h-full shadow-sm w-full lg:w-2/3 xl:w-3/4 mb-16 lg:rounded-3xl lg:border-4 lg:border-[#8c5134]'>
+                
+                {/* LIVE MAP SOLUTION */}
+                <div className='overflow-hidden h-full shadow-sm w-full lg:w-2/3 xl:w-3/4 mb-16 lg:rounded-3xl lg:border-4 lg:border-[#8c5134]'>
                     <Map
                     id="gmap"
                         mapId="4f80392ebc568740"
@@ -207,8 +288,8 @@ function Locations() {
                         <MarkerWithInfoWindow position={{lat: 43.65810391009144, lng: -79.37123984098434}} name="Sherbourne" address="236 Sherbourne St, Toronto, ON M5A 3X2" />
                     </Map>
                 </div>
-
             </div>
+
             <Footer/>
             </APIProvider>
         </div>
