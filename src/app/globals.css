@@ -1,4 +1,6 @@
 @import "tailwindcss";
+/* @config "../../tailwind.config.js"; */
+/* @config "../postcss.config.mjs"; */
 
 :root {
   --background: #ffffff;
@@ -10,6 +12,95 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+
+  --color-mainBG: oklch(0.96 0.0148 80.71);
+  --color-mainBGDarker: oklch(0.91 0.0309 81.75);
+  --color-mainText: oklch(0.31 0.0674 37.9);
+  --color-mainOrange: oklch(0.72 0.1493 52.8);
+  --color-mainGreen: oklch(0.55 0.1421 144.29);
+  --color-mainYellow: oklch(0.79 0.1618 75.03);
+  --color-mainRed: oklch(0.55 0.2012 30.48);
+  --color-mainRedDarker: oklch(0.46 0.1658 30.86);
+
+  --text-xs: 0.75rem;
+  --text-sm: 0.8rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-xxxxs: 0.25rem;
+  --text-xxxs: 0.35rem;
+  --text-xxs: 0.5rem;
+  --text-2xl: 1.563rem;
+  --text-3xl: 1.953rem;
+  --text-4xl: 2.441rem;
+  --text-5xl: 3.052rem;
+  --text-6xl: 3.75rem;
+  --text-7xl: 4.5rem;
+  --text-8xl: 6rem;
+  --text-9xl: 8rem;
+  --text-10xl: 10rem;
+  --text-14xl: 18rem;
+
+  --spacing-1: 4px;
+  --spacing-0.25: 1px;
+  --spacing-11: 44px;
+  --spacing-12: 48px;
+  --spacing-14: 56px;
+  --spacing-18: 72px;
+  --spacing-21: 84px;
+  --spacing-22: 88px;
+  --spacing-23: 92px;
+  --spacing-24: 96px;
+  --spacing-25: 100px;
+  --spacing-26: 104px;
+  --spacing-28: 112px;
+  --spacing-32: 128px;
+  --spacing-34: 136px;
+  --spacing-36: 144px;
+  --spacing-42: 168px;
+  --spacing-43: 172px;
+  --spacing-46: 184px;
+  --spacing-52: 208px;
+  --spacing-54: 216px;
+  --spacing-56: 224px;
+  --spacing-66: 264px;
+  --spacing-68: 272px;
+  --spacing-78: 312px;
+  --spacing-80: 320px;
+  --spacing-82: 328px;
+  --spacing-84: 336px;
+  --spacing-86: 344px;
+  --spacing-88: 352px;
+  --spacing-89: 356px;
+  --spacing-92: 368px;
+  --spacing-100: 400px;
+  --spacing-102: 408px;
+  --spacing-104: 416px;
+  --spacing-106: 424px;
+  --spacing-108: 432px;
+  --spacing-112: 448px;
+  --spacing-120: 480px;
+  --spacing-128: 512px;
+  --spacing-132: 516px;
+  --spacing-146: 584px;
+  --spacing-148: 592px;
+  --spacing-152: 608px;
+  --spacing-160: 640px;
+  --spacing-176: 704px;
+  --spacing-184: 736px;
+  --spacing-190: 780px;
+  --spacing-200: 800px;
+  --spacing-220: 880px;
+  --spacing-228: 912px;
+  --spacing-260: 1040px;
+  --spacing-270: 1080px;
+  --spacing-272: 1088px;
+  --spacing-288: 1152px;
+  --spacing-300: 1200px;
+  --spacing-320: 1280px;
+  --spacing-360: 1440px;
+  --spacing-400: 1600px;
+  
 }
 
 @media (prefers-color-scheme: dark) {
@@ -23,4 +114,9 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+
+@theme {
+  --color-mint-500: oklch(0.72 0.11 178);
 }
