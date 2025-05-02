@@ -228,10 +228,14 @@ function Success() {
 
     }, []);
 
+    useEffect(() => {
+        console.log("DONE HERE")
+    }, []);
+
     const categoryBanner = "h-14 lg:h-22 xl:h-32 2xl:h-42 text-lg lg:text-3xl xl:text-4xl flex justify-center items-center cursor-default"
   
     return (
-      <div className='bg-[#f7f1e7] h-screen flex flex-col'>
+      <div className='bg-[#f7f1e7]  flex flex-col'>
           <div className='flex-1'><Header/></div>
 
           <div className='justify-center text-3xl h-full flex flex-col bg-[#f7f1e7]Darker'>
@@ -250,14 +254,14 @@ function Success() {
 
               <div className={"flex max-w-7xl mx-auto justify-center lg:py-6 h-full w-full"}>
 
-                  <div className='lg:hidden px-2 w-full mx-4 mt-2 overflow-scroll  bg-stone-50'>
+                  <div className='lg:hidden px-2 w-full mx-4 mt-2 overflow-scroll bg-stone-50'>
                         <ReceiptContent cartDetails={cartDetails} totalPrice={totalPrice} locationAddress={locationAddress} />
                   </div>
 
-                  <div className='hidden lg:flex w-1/2'>
-                        <div className='bg-[#c89e70]  h-full w-full z-10 py-12 overflow-visible border-t-16 border-t-[#ae804f]'>
+                  <div className='hidden lg:flex w-1/2 min-h-220'>
+                        <div className='bg-[#c89e70]  h-full w-full z-10 py-12 overflow-visible border-t-16 border-t-[#ae804f] flex justify-center'>
 
-                            <div className='w-full h-1/2 flex'>
+                            {/* <div className='w-full h-1/2 flex'>
                                 <div className='w-1/2 h-full flex justify-center items-center'>                          
                                     <div className='bg-[#4c2216] p-6 rounded-2xl -ml-16'>
                                         <div className={`${bkReg.className} cursor-default text-center text-xxs md:text-xs lg:text-base text-stone-200 flex justify-center items-center scale-125`}>
@@ -285,13 +289,34 @@ function Success() {
                                     <div className='w-full h-1/3 bg-[#318636]'></div>
                                 </div>
                                 <div className='w-full h-1/3'></div>
+                            </div> */}
+
+
+                            <div className='w-full h-full '>
+                                <div className='w-full h-1/3'></div>
+                                <div className='w-full h-1/3'>
+                                    <div className='w-full h-1/3 bg-[#4c2216]'></div>
+                                    <div className='w-full h-1/3 bg-[#cd2917]'></div>
+                                    <div className='w-full h-1/3 bg-[#318636]'></div>
+                                </div>
+                                <div className='w-full h-1/3'></div>
                             </div>
 
-                            <div className='bg-stone-50 w-2/3 h-full pb-1 -mt-200 z-20 ml-62 border-stone-300 border-8 cursor-default'>
+                            <div className='bg-stone-50 w-2/3 h-full pb-1 border-stone-300 border-8 cursor-default '>
                                     <ReceiptContent cartDetails={cartDetails} totalPrice={totalPrice} locationAddress={locationAddress} deliveryOption={deliveryOption} userAddress={userAddress} 
                                                     userCity={userCity} userPostalCode={userPostalCode}
                                     />
 
+                            </div>
+
+                            <div className='w-full h-full '>
+                                <div className='w-full h-1/3'></div>
+                                <div className='w-full h-1/3'>
+                                    <div className='w-full h-1/3 bg-[#4c2216]'></div>
+                                    <div className='w-full h-1/3 bg-[#cd2917]'></div>
+                                    <div className='w-full h-1/3 bg-[#318636]'></div>
+                                </div>
+                                <div className='w-full h-1/3'></div>
                             </div>
 
                         </div>

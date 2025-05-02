@@ -115,9 +115,9 @@ function Checkout() {
 
     const [orderBag, setOrderBag] = useState("")
 
-    const [cartCountCopy, setCartCountCopy] = useState(cartCount);
-    const [cartDetailsCopy, setCartDetailsCopy] = useState(cartDetails);
-    const [totalPriceCopy, setTotalPriceCopy] = useState(totalPrice);
+    // const [cartCountCopy, setCartCountCopy] = useState(cartCount);
+    // const [cartDetailsCopy, setCartDetailsCopy] = useState(cartDetails);
+    // const [totalPriceCopy, setTotalPriceCopy] = useState(totalPrice);
 
     const handleSubmit = () => {
         // e.preventDefault();
@@ -129,7 +129,7 @@ function Checkout() {
         localStorage.setItem("userCity", JSON.stringify(userCity));
         localStorage.setItem("userPostalCode", JSON.stringify(userPostalCode));
         localStorage.setItem("locationAddress", JSON.stringify(locationAddress));
-        localStorage.setItem("cartDetailsCopy", JSON.stringify(cartDetailsCopy));
+        // localStorage.setItem("cartDetailsCopy", JSON.stringify(cartDetailsCopy));
 
         // clearCart
     };
@@ -175,11 +175,11 @@ function Checkout() {
 
                     <div className="grid grid-cols-1 px-4 lg:px-0 lg:grid-cols-2 gap-4">    
                         <div>
-                            {cartCountCopy && cartCountCopy > 0 ? (
+                            {cartCount && cartCount > 0 ? (
                                 <>
                                 <div className={`bg-[#4c2216] text-white cursor-default mb-3 ${headerCSS}`}>Your order</div>
 
-                                {Object.values(cartDetailsCopy ?? {}).map((entry) => (
+                                {Object.values(cartDetails ?? {}).map((entry) => (
                                     <CheckoutItem key={entry.id} item={entry} />
                                 ))}
                                 </>
@@ -189,16 +189,16 @@ function Checkout() {
                             <div className="w-full px-12 lg:px-12 bg-white rounded-3xl shadow-md mb-6 text-[#4c2216] font-semibold text-lg lg:text-xl py-4 lg:py-8 lg:space-y-1 cursor-default">
                                 <div className="flex items-center justify-between ">
                                     <div className={` ${bkReg.className}`}>Subtotal:</div>
-                                    <div className="">{formatCurrencyString({ value:totalPriceCopy, currency: "CAD" })}</div>
+                                    <div className="">{formatCurrencyString({ value:totalPrice, currency: "CAD" })}</div>
                                 </div>
                                 <div className="flex items-center justify-between ">
                                     <div className={`${bkReg.className}`}>Taxes:</div>
-                                    <div className="">{formatCurrencyString({ value:totalPriceCopy*0.13, currency: "CAD" })}</div>
+                                    <div className="">{formatCurrencyString({ value:totalPrice*0.13, currency: "CAD" })}</div>
                                 </div>
                                 <div className="max-w-full h-0.5 bg-stone-300 my-4"></div>
                                 <div className="flex items-center justify-between">
                                     <div className={`${bkReg.className}`}>Total:</div>
-                                    <div className="">{formatCurrencyString({ value:totalPriceCopy*1.13, currency: "CAD" })}</div>
+                                    <div className="">{formatCurrencyString({ value:totalPrice*1.13, currency: "CAD" })}</div>
                                 </div>
                             </div>
                         </div>
@@ -293,38 +293,38 @@ function Checkout() {
                                             </div>
                                         </div>
 
-                                        <div className={`${deliveryOption > 3 ? "bg-white border-[#4c2216]" : "bg-stone-100 border-stone-200"} rounded-3xl py-4 border-2 flex justify-center`}>
+                                        <div className={`lg:mt-2 ${deliveryOption > 3 ? "bg-white border-[#4c2216]" : "bg-stone-100 border-stone-200"} rounded-3xl py-4 border-2 flex justify-center`}>
 
-                                        <div className="mt-0 mx-0 w-full px-3 ">
-                                            <div className="flex  space-x-2 text-lg">
-                                                <div onClick={deliveryOption>3 ? ()=>{setDeliveryTime(0)} : undefined} 
-                                                    className={`w-3/4 pl-4 pr-3 ${deliveryOption>3 ? "cursor-pointer" : "cursor-default"} 
-                                                                ${deliveryOption> 3 ? "border-[#4c2216] bg-white" : "border-stone-300 bg-stone-200"} py-2 flex justify-between items-center border-2 rounded-xl`}
-                                                >
-                                                    <div>
-                                                        <div className={`-mt-0.5 flex text-lg lg:text-xl ${deliveryOption > 3 ? "text-stone-600" : "text-stone-400"}`}>
-                                                            Default Address
+                                            <div className="mt-0 mx-0 w-full px-3 ">
+                                                <div className="flex  space-x-2 text-lg">
+                                                    <div onClick={deliveryOption>3 ? ()=>{setDeliveryTime(0)} : undefined} 
+                                                        className={`w-3/4 pl-4 pr-3 ${deliveryOption>3 ? "cursor-pointer" : "cursor-default"} 
+                                                                    ${deliveryOption> 3 ? "border-[#4c2216] bg-white" : "border-stone-300 bg-stone-200"} py-2 flex justify-between items-center border-2 rounded-xl`}
+                                                    >
+                                                        <div>
+                                                            <div className={`-mt-0.5 flex text-lg lg:text-xl ${deliveryOption > 3 ? "text-stone-600" : "text-stone-400"}`}>
+                                                                Default Address
+                                                            </div>
+                                                            <div className={`text-sm lg:text-base leading-3 ${deliveryOption > 3 ? "text-stone-700" : "text-stone-500"}`}>{userAddress}, {userCity}&nbsp;ON, {userPostalCode}</div>
                                                         </div>
-                                                        <div className={`text-sm lg:text-base leading-3 ${deliveryOption > 3 ? "text-stone-700" : "text-stone-500"}`}>{userAddress}, {userCity}&nbsp;ON, {userPostalCode}</div>
+                                                        
+                                                        <div className={`hidden mt-0.25 border-2 ${deliveryOption > 3 ? "border-stone-400" : "border-stone-300 text-stone-400"} rounded-lg p-1`}>
+                                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-8">
+                                                                <path fillRule="evenodd" d="M8.161 2.58a1.875 1.875 0 0 1 1.678 0l4.993 2.498c.106.052.23.052.336 0l3.869-1.935A1.875 1.875 0 0 1 21.75 4.82v12.485c0 .71-.401 1.36-1.037 1.677l-4.875 2.437a1.875 1.875 0 0 1-1.676 0l-4.994-2.497a.375.375 0 0 0-.336 0l-3.868 1.935A1.875 1.875 0 0 1 2.25 19.18V6.695c0-.71.401-1.36 1.036-1.677l4.875-2.437ZM9 6a.75.75 0 0 1 .75.75V15a.75.75 0 0 1-1.5 0V6.75A.75.75 0 0 1 9 6Zm6.75 3a.75.75 0 0 0-1.5 0v8.25a.75.75 0 0 0 1.5 0V9Z" clipRule="evenodd" />
+                                                            </svg>
+                                                        </div>
+                                                    </div>
+
+                                                    <div 
+                                                    // onClick={deliveryOption>3 ? ()=>{setDeliveryTime(0)} : undefined} 
+                                                        className={`w-1/4 ${deliveryOption>3 ? "cursor-pointer" : "cursor-default"} 
+                                                                    ${deliveryOption> 3 ? "border-stone-300 bg-stone-50 text-stone-700" : "border-stone-300 text-stone-500 bg-stone-200"} ${deliveryTimeCSS}`}
+                                                    >
+                                                        Change
                                                     </div>
                                                     
-                                                    <div className={`hidden mt-0.25 border-2 ${deliveryOption > 3 ? "border-stone-400" : "border-stone-300 text-stone-400"} rounded-lg p-1`}>
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-8">
-                                                            <path fillRule="evenodd" d="M8.161 2.58a1.875 1.875 0 0 1 1.678 0l4.993 2.498c.106.052.23.052.336 0l3.869-1.935A1.875 1.875 0 0 1 21.75 4.82v12.485c0 .71-.401 1.36-1.037 1.677l-4.875 2.437a1.875 1.875 0 0 1-1.676 0l-4.994-2.497a.375.375 0 0 0-.336 0l-3.868 1.935A1.875 1.875 0 0 1 2.25 19.18V6.695c0-.71.401-1.36 1.036-1.677l4.875-2.437ZM9 6a.75.75 0 0 1 .75.75V15a.75.75 0 0 1-1.5 0V6.75A.75.75 0 0 1 9 6Zm6.75 3a.75.75 0 0 0-1.5 0v8.25a.75.75 0 0 0 1.5 0V9Z" clipRule="evenodd" />
-                                                        </svg>
-                                                    </div>
                                                 </div>
-
-                                                <div 
-                                                // onClick={deliveryOption>3 ? ()=>{setDeliveryTime(0)} : undefined} 
-                                                    className={`w-1/4 ${deliveryOption>3 ? "cursor-pointer" : "cursor-default"} 
-                                                                ${deliveryOption> 3 ? "border-stone-300 bg-stone-50 text-stone-700" : "border-stone-300 text-stone-500 bg-stone-200"} ${deliveryTimeCSS}`}
-                                                >
-                                                    Change
-                                                </div>
-                                                
                                             </div>
-                                        </div>
 
                                         </div>
                                         
