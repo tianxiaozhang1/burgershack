@@ -22,7 +22,7 @@ import MealMain3 from '../images/burger5.png'
 const OrderButtons = () => {
     return (
         <div className="">
-            <div className={` ${bkReg.className} text-mainText flex justify-center text-center
+            <div className={` ${bkReg.className} text-[#4c2216] flex justify-center text-center
                                 text-xl md:text-3xl lg:text-6xl xl:text-7xl
                                 font-extrabold xl:font-black 
                                 pt-4 cursor-default lg:text-end lg:pr-6 lg:leading-[1]`}>
@@ -31,7 +31,7 @@ const OrderButtons = () => {
 
             <div className="">
                 <a href='/menu'>
-                <div className={`bg-mainGreen text-stone-100 hover:text-white
+                <div className={`bg-[#318636] text-stone-100 hover:text-white
                                     py-2 lg:py-3 font-bold text-lg lg:text-2xl
                                 flex justify-center mx-6 xl:mx-2 rounded-3xl my-2 xl:my-3 cursor-pointer
                                 ${patua_one.className}`}>
@@ -64,14 +64,14 @@ const SmallMidOrderButtons = () => {
     return (
         <div className='w-full'>
             <div className='flex justify-center text-center w-full'>
-                <div className={`${bkReg.className} text-mainText flex justify-center text-center
+                <div className={`${bkReg.className} text-[#4c2216] flex justify-center text-center
                                     text-2xl md:text-3xl font-extrabold pt-0.5 md:pt-0 cursor-default `}>
                     GET IT WHILE IT&apos;S HOT.  
                 </div>
             </div>
             <div className="md:flex w-full">
                 <a href='/menu' className='md:w-1/2'>
-                    <div className={` bg-mainGreen text-stone-100 hover:text-white
+                    <div className={` bg-[#318636] text-stone-100 hover:text-white
                                         py-2 font-bold text-lg
                                     flex justify-center mx-2 rounded-3xl my-2 cursor-pointer
                                     ${patua_one.className}`}>
@@ -109,7 +109,7 @@ function MainItem() {
                     <div className='hidden lg:flex lg:w-1/3'><OrderButtons/></div>
                     <div className='flex lg:hidden w-full'><SmallMidOrderButtons/></div>
                     <Link href='/menu' className='lg:w-2/3'>
-                        <div className="bg-mainText m-2 mt-3 rounded-3xl justify-center items-center text-mainBG text-3xl pb-3 md:pb-4 cursor-pointer pt-4">
+                        <div className="bg-[#4c2216] m-2 mt-3 rounded-3xl justify-center items-center text-[#f7f1e7] text-3xl pb-3 md:pb-4 cursor-pointer pt-4">
 
                                 <div className={`text-orange-200 lg:text-6xl flex justify-center items-center -mt-1 -mb-3 md:-mb-2 ${bkReg.className}`}>
                                     For the BBQ lo

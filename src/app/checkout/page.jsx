@@ -2,12 +2,11 @@
 import React, { useState, useContext } from "react";
 // import { createContext } from 'react';
 // import { useRouter } from "next/navigation";
-
 // import { UserContext } from '../../components/OrderContext';
 
 import Link from 'next/link'
 // import Image from "next/image";
-import Form from 'next/form'
+// import Form from 'next/form'
 
 import { formatCurrencyString } from "use-shopping-cart";
 import { useShoppingCart } from "use-shopping-cart";
@@ -23,23 +22,12 @@ import CheckoutItem from '../../components/CheckoutItem'
 // import CheckoutPart from '../../components/CheckoutPart'
 // import { useTheme } from '../../components/OrderContext';
 
-import card1 from '../../images/card1a.png'
+// import card1 from '../../images/card1a.png'
 
 import DoorDashIcon from '../../images/icons/DoorDashIcon'
 import GrubHubIcon from '../../images/icons/GrubHubIcon'
 import SkipDishesIcon from '../../images/icons/SkipDishesIcon'
 import UberEatsIcon from '../../images/icons/UberEatsIcon'
-
-// const UberEatsIcon = () => {
-//     return (
-//         // h408 w2500
-//         <svg height="98" width="98" xmlns="http://www.w3.org/2000/svg" viewBox="0.19000000000000128 0.25 367.46 61.17460741747068">
-//             <g fill="none">
-//                 <path d="M194.32.25h40.87v10h-29.83v14.2h29v9.66h-29v14.44h29.83v10h-40.87zM348.06 59.6c12.53 0 19.59-6 19.59-14.24 0-5.87-4.18-10.25-12.93-12.15l-9.25-1.89c-5.37-1-7.06-2-7.06-4 0-2.59 2.59-4.18 7.36-4.18 5.17 0 9 1.39 10 6.17h10.84c-.59-9-7.06-14.94-20.18-14.94-11.34 0-19.3 4.68-19.3 13.75 0 6.27 4.38 10.35 13.83 12.34l10.34 2.39c4.08.8 5.17 1.9 5.17 3.59 0 2.69-3.08 4.38-8.06 4.38-6.26 0-9.84-1.39-11.23-6.17h-10.9c1.59 8.98 8.25 14.95 21.78 14.95zm-24.93-1.09H311.4c-7.36 0-11.44-4.58-11.44-10.36v-22.9h-8.25v-9.76H300V3.24h10.9v12.25h12.23v9.76H310.9v20.11c0 2.29 1.59 3.39 4.08 3.39h8.15zm-47-43v3.88a21.16 21.16 0 0 0-13.73-5 22.61 22.61 0 1 0 0 45.21 21.1 21.1 0 0 0 13.73-5v3.89H287v-43zM263.3 50.16a13.15 13.15 0 1 1 13-13.14 13 13 0 0 1-13.02 13.12z" fill="#05c167"/><path d="M170.06 23.56c-5.47 0-9.35 4.28-9.35 10.85v24.1h-8.35V16.09h8.25v5.18a11.19 11.19 0 0 1 9.94-5.48h3v7.77zM146.59 37.3c0-12.65-9-22.11-21.18-22.11a21.83 21.83 0 0 0-21.68 22.11c0 12.64 9.75 22.2 22.47 22.2a22.17 22.17 0 0 0 18.3-9.06L138.44 46a14.78 14.78 0 0 1-12.24 6.17 14.22 14.22 0 0 1-14-12.14h34.41zm-34.21-3.89c1.49-6.47 6.66-10.85 12.93-10.85s11.43 4.38 12.83 10.85zm-35.1-18.22a21.12 21.12 0 0 0-15 6.27V.25h-8.35v58.26h8.25v-5.38A21.45 21.45 0 0 0 77.3 59.5a22.16 22.16 0 1 0 0-44.31zm-.6 36.85A14.69 14.69 0 1 1 91.3 37.4 14.58 14.58 0 0 1 76.68 52zm-53.5-.4c8.06 0 14.32-6.18 14.32-15.44V.25h8.65v58.26H37.6V53a21.24 21.24 0 0 1-15.41 6.47c-12.43 0-22-9.06-22-22.8V.25H9v36c0 9.31 6 15.39 14.18 15.39z" fill="#000"/>
-//             </g>
-//         </svg>
-//     )
-// }
 
 const MasterCardIcon = () => {
     return (
@@ -117,7 +105,7 @@ const headerCSS = `py-3 w-full rounded-3xl flex justify-center items-center text
 const locationButton = `-mt-0.25 lg:mt-0 pt-0.25 lg:pt-0 py-0.5 text-xs lg:text-sm px-1.5 lg:px-2 border-2 rounded-xl cursor-pointer flex uppercase`
 
 function Checkout() {
-    const { shouldDisplayCart, cartCount, cartDetails, totalPrice } = useShoppingCart();
+    const { shouldDisplayCart, cartCount, cartDetails, totalPrice, clearCart } = useShoppingCart();
 
     // const [theme, setTheme] = useState("YYYYY");
 
@@ -127,25 +115,27 @@ function Checkout() {
 
     const [orderBag, setOrderBag] = useState("")
 
+    const [cartCountCopy, setCartCountCopy] = useState(cartCount);
+    const [cartDetailsCopy, setCartDetailsCopy] = useState(cartDetails);
+    const [totalPriceCopy, setTotalPriceCopy] = useState(totalPrice);
+
     const handleSubmit = () => {
         // e.preventDefault();
         // setUserInput(input);
         localStorage.setItem("deliveryOption", JSON.stringify(deliveryOption));
         localStorage.setItem("deliveryTime", JSON.stringify(deliveryTime));
         localStorage.setItem("paymentOption", JSON.stringify(paymentOption));
-
         localStorage.setItem("userAddress", JSON.stringify(userAddress));
         localStorage.setItem("userCity", JSON.stringify(userCity));
         localStorage.setItem("userPostalCode", JSON.stringify(userPostalCode));
-
         localStorage.setItem("locationAddress", JSON.stringify(locationAddress));
+        localStorage.setItem("cartDetailsCopy", JSON.stringify(cartDetailsCopy));
 
-        localStorage.setItem("cartDetails", JSON.stringify(cartDetails));
-        
+        // clearCart
     };
 
     const [userAddress, setUserAddress] = useState('465 New Street');
-    const [userAddress2, setUserAddress2] = useState('');
+    // const [userAddress2, setUserAddress2] = useState('');
     const [userCity, setUserCity] = useState('Toronto');
     const [userPostalCode, setUserPostalCode] = useState('M7D 9A6');
 
@@ -169,14 +159,14 @@ function Checkout() {
   
     return (
         // <OrderContext.Provider value={{ theme, setTheme }}>
-            <div className='bg-mainBG '>
+            <div className='bg-[#f7f1e7] '>
                 {/* h-screen */}
                 <Header/>
 
                 <div className={` ${bkBold.className}`}>
 
-                    <div className={`bg-mainText ${categoryBanner}`}>
-                        <div className='text-mainBG'>Check Out</div>
+                    <div className={`bg-[#4c2216] ${categoryBanner}`}>
+                        <div className='text-[#f7f1e7]'>Check Out</div>
                     </div>
                     
                 </div>
@@ -185,30 +175,30 @@ function Checkout() {
 
                     <div className="grid grid-cols-1 px-4 lg:px-0 lg:grid-cols-2 gap-4">    
                         <div>
-                            {cartCount && cartCount > 0 ? (
+                            {cartCountCopy && cartCountCopy > 0 ? (
                                 <>
-                                <div className={`bg-mainText text-white cursor-default mb-3 ${headerCSS}`}>Your order</div>
+                                <div className={`bg-[#4c2216] text-white cursor-default mb-3 ${headerCSS}`}>Your order</div>
 
-                                {Object.values(cartDetails ?? {}).map((entry) => (
+                                {Object.values(cartDetailsCopy ?? {}).map((entry) => (
                                     <CheckoutItem key={entry.id} item={entry} />
                                 ))}
                                 </>
                             ) : (
                                 <div className={`text-center text-xl lg:text-3xl cursor-default mb-6 mt-4 ${bkReg.className}`}>You have no items in your cart</div>
                             )}
-                            <div className="w-full px-12 lg:px-12 bg-white rounded-3xl shadow-md mb-6 text-mainText font-semibold text-lg lg:text-xl py-4 lg:py-8 lg:space-y-1 cursor-default">
+                            <div className="w-full px-12 lg:px-12 bg-white rounded-3xl shadow-md mb-6 text-[#4c2216] font-semibold text-lg lg:text-xl py-4 lg:py-8 lg:space-y-1 cursor-default">
                                 <div className="flex items-center justify-between ">
                                     <div className={` ${bkReg.className}`}>Subtotal:</div>
-                                    <div className="">{formatCurrencyString({ value:totalPrice, currency: "CAD" })}</div>
+                                    <div className="">{formatCurrencyString({ value:totalPriceCopy, currency: "CAD" })}</div>
                                 </div>
                                 <div className="flex items-center justify-between ">
                                     <div className={`${bkReg.className}`}>Taxes:</div>
-                                    <div className="">{formatCurrencyString({ value:totalPrice*0.13, currency: "CAD" })}</div>
+                                    <div className="">{formatCurrencyString({ value:totalPriceCopy*0.13, currency: "CAD" })}</div>
                                 </div>
                                 <div className="max-w-full h-0.5 bg-stone-300 my-4"></div>
                                 <div className="flex items-center justify-between">
                                     <div className={`${bkReg.className}`}>Total:</div>
-                                    <div className="">{formatCurrencyString({ value:totalPrice*1.13, currency: "CAD" })}</div>
+                                    <div className="">{formatCurrencyString({ value:totalPriceCopy*1.13, currency: "CAD" })}</div>
                                 </div>
                             </div>
                         </div>
@@ -216,34 +206,34 @@ function Checkout() {
                         <div className={`mb-6 ${bkReg.className}`}>
                         
                             <div className="space-y-2 -mt-6 lg:mt-0">
-                                <div className={`cursor-default ${deliveryOption < 3 ? "bg-mainGreen text-white" : "bg-stone-400 border-stone-200 text-stone-100"} ${headerCSS}`}>
+                                <div className={`cursor-default ${deliveryOption < 3 ? "bg-[#318636] text-white" : "bg-stone-400 border-stone-200 text-stone-100"} ${headerCSS}`}>
                                     COME JOIN US
                                 </div>
 
                                 <div className="flex space-x-2 mt-3">
-                                    <div className={`${deliveryOptionCSS} ${deliveryOption === 0 ? "bg-white border-mainText" : "bg-stone-100 border-stone-200"}`} onClick={()=>{setDeliveryOption(0)}}>
+                                    <div className={`${deliveryOptionCSS} ${deliveryOption === 0 ? "bg-white border-[#4c2216]" : "bg-stone-100 border-stone-200"}`} onClick={()=>{setDeliveryOption(0)}}>
                                         <div>Dine In</div>
                                     </div>
-                                    <div className={`text-center leading-5 ${deliveryOptionCSS} ${deliveryOption === 1 ? "bg-white border-mainText" : "bg-stone-100 border-stone-200"}`} onClick={()=>{setDeliveryOption(1)}}>
+                                    <div className={`text-center leading-5 ${deliveryOptionCSS} ${deliveryOption === 1 ? "bg-white border-[#4c2216]" : "bg-stone-100 border-stone-200"}`} onClick={()=>{setDeliveryOption(1)}}>
                                         <div>Drive Thru</div>
                                     </div>
-                                    <div className={`${deliveryOptionCSS} ${deliveryOption === 2 ? "bg-white border-mainText" : "bg-stone-100 border-stone-200"}`} onClick={()=>{setDeliveryOption(2)}}>
+                                    <div className={`${deliveryOptionCSS} ${deliveryOption === 2 ? "bg-white border-[#4c2216]" : "bg-stone-100 border-stone-200"}`} onClick={()=>{setDeliveryOption(2)}}>
                                         <div>Pick Up</div>
                                     </div>
                                 </div>
 
-                                <div  className={`${deliveryOption < 4 ? "bg-white border-mainText" : "bg-stone-100 border-stone-200"} rounded-3xl py-4 border-2 flex justify-center`}>
+                                <div  className={`${deliveryOption < 4 ? "bg-white border-[#4c2216]" : "bg-stone-100 border-stone-200"} rounded-3xl mt-2 lg:mt-0 py-4 border-2 flex justify-center`}>
  
                                     <div className="mt-0 mx-0 w-full px-3">
                                         <div className="flex  space-x-2 text-lg">
                                             <div onClick={deliveryOption>3 ? ()=>{setDeliveryTime(0)} : undefined} 
                                                 className={`w-3/4 pl-4 pr-3 ${deliveryOption>3 ? "cursor-pointer" : "cursor-default"} 
-                                                            ${deliveryOption<4 ? "border-mainText bg-white" : "border-stone-300 bg-stone-200"} py-2 flex justify-between items-center border-2 rounded-xl`}
+                                                            ${deliveryOption<4 ? "border-[#4c2216] bg-white" : "border-stone-300 bg-stone-200"} py-2 flex justify-between items-center border-2 rounded-xl`}
                                             >
                                                 <div>
                                                     <div className={`-mt-0.5 text-base flex lg:text-xl ${deliveryOption < 4 ? "text-stone-600" : "text-stone-400"}`}>
                                                         Default Location
-                                                        <div className={`mt-0.5 ml-0.5 lg:ml-1 lg:mt-0.5 scale-90 ${locationButton} border-0 ${deliveryOption<4 ? "bg-mainGreen text-stone-50": "bg-[#779649] text-stone-200"}`}>
+                                                        <div className={`mt-0.5 ml-0.5 lg:ml-1 lg:mt-0.5 scale-90 ${locationButton} border-0 ${deliveryOption<4 ? "bg-[#318636] text-stone-50": "bg-[#779649] text-stone-200"}`}>
                                                             <div className='mt-0'>Open</div>
                                                         </div>
                                                     </div>
@@ -271,13 +261,13 @@ function Checkout() {
 
                             </div>
 
-                            <div className={`w-full  flex flex-col space-y-2 overflow-hidden cursor-pointer mt-3`} >
+                            <div className={`w-full  flex flex-col space-y-2 overflow-hidden cursor-pointer mt-3 mb-2 lg:mb-0`} >
 
-                                <div className={`cursor-default ${deliveryOption > 3 ? "bg-mainRed text-white" : "bg-stone-400 border-stone-200 text-stone-100"} ${headerCSS}`}>
+                                <div className={`cursor-default ${deliveryOption > 3 ? "bg-[#cd2917] text-white" : "bg-stone-400 border-stone-200 text-stone-100"} ${headerCSS}`}>
                                     DELIVERY OPTIONS
                                 </div>
 
-                                <div className={`${deliveryOption > 3 ? "bg-white border-mainText" : "bg-stone-100 border-stone-200"} px-4 rounded-3xl pt-3 pb-1 lg:pt-3 lg:pb-1 border-2 flex justify-center`}>
+                                <div className={`mt-2 lg:mt-0 ${deliveryOption > 3 ? "bg-white border-[#4c2216]" : "bg-stone-100 border-stone-200"} px-4 rounded-3xl pt-3 pb-1 lg:pt-3 lg:pb-1 border-2 flex justify-center`}>
                                     
                                     <div className="space-y-2 ">
                                         <div className="flex justify-center space-x-1.5">
@@ -295,21 +285,21 @@ function Checkout() {
                                             </div>
                                         </div>
 
-                                        <div className="mt-3 px-0 mx-0">
-                                            <div className="flex justify-center space-x-2 text-lg px-4">
-                                                <div onClick={deliveryOption>3 ? ()=>{setDeliveryTime(0)} : undefined} className={`${deliveryOption>3 ? "cursor-pointer" : "cursor-default"} ${deliveryTime === 0 && deliveryOption>3 ? "border-mainText bg-white" : "border-stone-300 bg-stone-200"} ${deliveryTimeCSS} w-1/3`}>Now</div>
-                                                <div onClick={deliveryOption>3 ? ()=>{setDeliveryTime(1)} : undefined} className={`${deliveryOption>3 ? "cursor-pointer" : "cursor-default"} ${deliveryTime === 1 && deliveryOption>3 ? "border-mainText bg-white" : "border-stone-300 bg-stone-200"} ${deliveryTimeCSS} w-1/3`}>In 15 Minutes</div>
-                                                <div onClick={deliveryOption>3 ? ()=>{setDeliveryTime(2)} : undefined} className={`${deliveryOption>3 ? "cursor-pointer" : "cursor-default"} ${deliveryTime === 2 && deliveryOption>3 ? "border-mainText bg-white" : "border-stone-300 bg-stone-200"} ${deliveryTimeCSS} w-1/3`}>In 1 Hour</div>
+                                        <div className="mt-3 px-0 mx-0 mb-2 lg:mb-0">
+                                            <div className="flex justify-center space-x-2 text-lg px-2">
+                                                <div onClick={deliveryOption>3 ? ()=>{setDeliveryTime(0)} : undefined} className={`${deliveryOption>3 ? "cursor-pointer" : "cursor-default"} ${deliveryTime === 0 && deliveryOption>3 ? "border-[#4c2216] bg-white" : "border-stone-300 bg-stone-200"} ${deliveryTimeCSS} w-1/3`}>Now</div>
+                                                <div onClick={deliveryOption>3 ? ()=>{setDeliveryTime(1)} : undefined} className={`${deliveryOption>3 ? "cursor-pointer" : "cursor-default"} ${deliveryTime === 1 && deliveryOption>3 ? "border-[#4c2216] bg-white" : "border-stone-300 bg-stone-200"} ${deliveryTimeCSS} w-1/3`}>In 15 Minutes</div>
+                                                <div onClick={deliveryOption>3 ? ()=>{setDeliveryTime(2)} : undefined} className={`${deliveryOption>3 ? "cursor-pointer" : "cursor-default"} ${deliveryTime === 2 && deliveryOption>3 ? "border-[#4c2216] bg-white" : "border-stone-300 bg-stone-200"} ${deliveryTimeCSS} w-1/3`}>In 1 Hour</div>
                                             </div>
                                         </div>
 
-                                        <div className={`${deliveryOption > 3 ? "bg-white border-mainText" : "bg-stone-100 border-stone-200"} rounded-3xl py-4 border-2 flex justify-center`}>
+                                        <div className={`${deliveryOption > 3 ? "bg-white border-[#4c2216]" : "bg-stone-100 border-stone-200"} rounded-3xl py-4 border-2 flex justify-center`}>
 
                                         <div className="mt-0 mx-0 w-full px-3 ">
                                             <div className="flex  space-x-2 text-lg">
                                                 <div onClick={deliveryOption>3 ? ()=>{setDeliveryTime(0)} : undefined} 
                                                     className={`w-3/4 pl-4 pr-3 ${deliveryOption>3 ? "cursor-pointer" : "cursor-default"} 
-                                                                ${deliveryOption> 3 ? "border-mainText bg-white" : "border-stone-300 bg-stone-200"} py-2 flex justify-between items-center border-2 rounded-xl`}
+                                                                ${deliveryOption> 3 ? "border-[#4c2216] bg-white" : "border-stone-300 bg-stone-200"} py-2 flex justify-between items-center border-2 rounded-xl`}
                                                 >
                                                     <div>
                                                         <div className={`-mt-0.5 flex text-lg lg:text-xl ${deliveryOption > 3 ? "text-stone-600" : "text-stone-400"}`}>
@@ -348,13 +338,13 @@ function Checkout() {
 
                             <div className={`grid lg:grid-cols-1 gap-2 mb-0 mt-3 ${bkReg.className}`}>
                                 <div className="space-y-2 h-full">
-                                    <div className={`bg-mainOrange text-white cursor-default ${headerCSS}`}>
+                                    <div className={`bg-[#ec8740] text-white cursor-default ${headerCSS}`}>
                                         PAYMENT OPTIONS
                                     </div>
 
-                                    <div className={`bg-white border-stone-300 rounded-3xl py-3 border-2 flex justify-center space-x-2 px-4`}>
+                                    <div className={`bg-white border-stone-300 rounded-3xl py-3 border-2 flex justify-center space-x-2 px-4 mt-2 lg:mt-0`}>
 
-                                        <div onClick={()=>{setPaymentOption(0)}} className={`cursor-pointer ${paymentOption === 0 ? "bg-white border-2 border-mainText text-mainText" : "bg-stone-100 border-stone-200 text-stone-500"} py-2 w-1/2 px-1 space-x-3 rounded-xl flex justify-center items-center`}>
+                                        <div onClick={()=>{setPaymentOption(0)}} className={`cursor-pointer ${paymentOption === 0 ? "bg-white border-2 border-[#4c2216] text-[#4c2216]" : "bg-stone-100 border-stone-200 text-stone-500"} py-2 w-1/2 px-1 space-x-3 rounded-xl flex justify-center items-center`}>
                                             <div>
                                                 <div>
                                                     <div className="flex items-center text-sm lg:text-lg -mt-1 text-center mb-1 justify-center">Default Payment Card</div>
@@ -370,15 +360,15 @@ function Checkout() {
 
                                         </div>
 
-                                        <div className={`${paymentOption > 0 ? "bg-white border-mainText text-mainText" : "bg-stone-100 border-stone-200 text-stone-500"} border-2 py-3 w-1/2 px-1 space-x-4 rounded-xl flex justify-center items-center`}>
+                                        <div className={`${paymentOption > 0 ? "bg-white border-[#4c2216] text-[#4c2216]" : "bg-stone-100 border-stone-200 text-stone-500"} border-2 py-3 w-1/2 px-1 space-x-4 rounded-xl flex justify-center items-center`}>
                                             <div>
                                                 <div>
                                                     <div className="flex items-center text-sm lg:text-lg -mt-1 text-center mb-1 justify-center cursor-default">Payment Options</div>
                                                 </div>
                                                 <div className="flex space-x-1">
-                                                    <div onClick={()=>{setPaymentOption(1)}} className={` ${paymentOption === 1 ? "border-mainYellow" : "border-stone-200"} cursor-pointer rounded-lg flex justify-center items-center`}><MasterCardIcon/></div>
-                                                    <div onClick={()=>{setPaymentOption(2)}} className={` ${paymentOption === 2 ? "border-mainYellow" : "border-stone-200"} cursor-pointer rounded-lg flex justify-center items-center`}><AMEXIcon/></div>
-                                                    <div onClick={()=>{setPaymentOption(3)}} className={` ${paymentOption === 3 ? "border-mainYellow" : "border-stone-200"} cursor-pointer rounded-lg flex justify-center items-center`}><VisaIcon/></div>
+                                                    <div onClick={()=>{setPaymentOption(1)}} className={` ${paymentOption === 1 ? "border-[#f6a91a]" : "border-stone-200"} cursor-pointer rounded-lg flex justify-center items-center`}><MasterCardIcon/></div>
+                                                    <div onClick={()=>{setPaymentOption(2)}} className={` ${paymentOption === 2 ? "border-[#f6a91a]" : "border-stone-200"} cursor-pointer rounded-lg flex justify-center items-center`}><AMEXIcon/></div>
+                                                    <div onClick={()=>{setPaymentOption(3)}} className={` ${paymentOption === 3 ? "border-[#f6a91a]" : "border-stone-200"} cursor-pointer rounded-lg flex justify-center items-center`}><VisaIcon/></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -394,7 +384,7 @@ function Checkout() {
 
                     <Link target="_blank" href="/success">
                         <div className="flex justify-center">
-                            <div className={`px-12 py-4 lg:py-6 -mt-1 mb-1 bg-mainText text-mainBG text-xl lg:text-2xl rounded-3xl ${bkReg.className}` } onClick={()=>{handleSubmit()}}>Order</div>
+                            <div className={`px-12 py-4 lg:py-6 -mt-1 mb-1 bg-[#4c2216] text-[#f7f1e7] text-xl lg:text-2xl rounded-3xl ${bkReg.className}` } onClick={()=>{handleSubmit()}}>Order</div>
                         </div>
                     </Link>
                 </div>

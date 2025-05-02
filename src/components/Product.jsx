@@ -57,7 +57,7 @@ export default function Product({ product }) {
     };
 
     return (
-        <div className={`${categoryGallery} text-mainText my-2 lg:my-8 scale-90 lg:scale-100`} >
+        <div className={`${categoryGallery} text-[#4c2216] my-2 lg:my-8 scale-90 lg:scale-100`} >
             <div className={`${itemImage}`}>
                 <Image
                     src={image}
@@ -85,14 +85,14 @@ export default function Product({ product }) {
 
             <div className="flex justify-center mt-1 mb-2 lg:text-xl text-stone-400">
                 <div className="flex">
-                  <div className="hover:text-mainText" onClick={decreaseQuantity}><MinusIcon /></div>
-                  <span className={`w-2 text-center rounded-md mx-3 text-mainText ${bkSans.className}`}>{quantity}</span>
-                  <div className="hover:text-mainText" onClick={increaseQuantity}><PlusIcon  /></div>
+                  <div className="hover:text-[#4c2216]" onClick={decreaseQuantity}><MinusIcon /></div>
+                  <span className={`w-2 text-center rounded-md mx-3 text-[#4c2216] ${bkSans.className}`}>{quantity}</span>
+                  <div className="hover:text-[#4c2216]" onClick={increaseQuantity}><PlusIcon  /></div>
                 </div>
             </div>
 
             <div className="w-full flex justify-center">
-                <button onClick={() => addToCart()} className={`lg:text-lg mx-auto bg-mainRed hover:bg-mainRedDarker text-stone-50 transition-colors duration-500 cursor-pointer rounded-3xl px-8 lg:px-16 py-2 ${bkReg.className}`}>
+                <button onClick={() => addToCart()} className={`lg:text-lg mx-auto bg-[#cd2917] hover:bg-[#cd2917]Darker text-stone-50 transition-colors duration-500 cursor-pointer rounded-3xl px-8 lg:px-16 py-2 ${bkReg.className}`}>
                   Add - {formatCurrencyString({ value: price*quantity, currency: "CAD" })}
                 </button>
             </div>

@@ -14,7 +14,7 @@ import Footer from "../components/Footer";
 
 export default function Home() {
     return (
-        <div className="bg-mainBG">
+        <div className="bg-[#f7f1e7]">
             <div className="z-40 sticky top-0"><Header/></div>
 
             <MainItem/>

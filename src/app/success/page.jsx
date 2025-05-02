@@ -112,16 +112,16 @@ function ReceiptContent({ cartDetails, totalPrice, locationAddress, deliveryOpti
     
     return (
         <div className={`bg-stone-50 `}>
-            <div className={`${bkReg.className} cursor-default text-center text-xxs md:text-xs lg:text-base text-mainText flex justify-center items-center scale-100 lg:scale-75 mt-2 lg:mt-1`}>
+            <div className={`${bkReg.className} cursor-default text-center text-xxs md:text-xs lg:text-base text-[#4c2216] flex justify-center items-center scale-100 lg:scale-75 mt-2 lg:mt-1`}>
                 <div>
-                    <div className='w-8 h-1.5 md:w-12 md:h-2 lg:w-16 lg:h-3 bg-mainOrange -mb-0.5 lg:-mb-1.5 rounded-t-3xl'></div>
+                    <div className='w-8 h-1.5 md:w-12 md:h-2 lg:w-16 lg:h-3 bg-[#ec8740] -mb-0.5 lg:-mb-1.5 rounded-t-3xl'></div>
                     <div className='flex justify-center'>
                         <div>
                             <div className='mt-0.5 -mb-0.5 md:-mb-2 lg:-mb-2.5 lg:mt-0.5'>BURGER</div>
                             <div>SHACK</div>
                         </div>
                     </div>
-                    <div className='w-8 h-1.5 md:w-12 md:h-2 lg:w-16 lg:h-3 bg-mainOrange -mt-0.5 lg:-mt-1 rounded-b-3xl'></div>
+                    <div className='w-8 h-1.5 md:w-12 md:h-2 lg:w-16 lg:h-3 bg-[#ec8740] -mt-0.5 lg:-mt-1 rounded-b-3xl'></div>
                 </div>
             </div>
 
@@ -196,7 +196,7 @@ function ReceiptContent({ cartDetails, totalPrice, locationAddress, deliveryOpti
 
 function Success() {
 
-    const { shouldDisplayCart, cartCount, cartDetails, totalPrice } = useShoppingCart();
+    const { shouldDisplayCart, cartCount, cartDetails, totalPrice, clearCart } = useShoppingCart();
 
     const [deliveryOption, setDeliveryOption] = useState(null);
     const [deliveryTime, setDeliveryTime] = useState(null);
@@ -231,19 +231,19 @@ function Success() {
     const categoryBanner = "h-14 lg:h-22 xl:h-32 2xl:h-42 text-lg lg:text-3xl xl:text-4xl flex justify-center items-center cursor-default"
   
     return (
-      <div className='bg-mainBG h-screen flex flex-col'>
+      <div className='bg-[#f7f1e7] h-screen flex flex-col'>
           <div className='flex-1'><Header/></div>
 
-          <div className='justify-center text-3xl h-full flex flex-col bg-mainBGDarker'>
+          <div className='justify-center text-3xl h-full flex flex-col bg-[#f7f1e7]Darker'>
 
-              <div className={`bg-mainText text-mainBG ${categoryBanner} ${bkReg.className} flex justify-center `}>
+              <div className={`bg-[#4c2216] text-[#f7f1e7] ${categoryBanner} ${bkReg.className} flex justify-center `}>
                   <div className=''>
-                      <div className='text-mainBG flex justify-center text-center'>
+                      <div className='text-[#f7f1e7] flex justify-center text-center'>
                           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-5 lg:size-10">
                             <path fillRule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm13.36-1.814a.75.75 0 1 0-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 0 0-1.06 1.06l2.25 2.25a.75.75 0 0 0 1.14-.094l3.75-5.25Z" clipRule="evenodd" />
                           </svg>
                       </div>
-                      <div className='text-mainBG flex justify-center text-center -mb-1'>Thank you for your order!</div>
+                      <div className='text-[#f7f1e7] flex justify-center text-center -mb-1'>Thank you for your order!</div>
                   </div>
 
               </div>
@@ -259,17 +259,17 @@ function Success() {
 
                             <div className='w-full h-1/2 flex'>
                                 <div className='w-1/2 h-full flex justify-center items-center'>                          
-                                    <div className='bg-mainText p-6 rounded-2xl -ml-16'>
+                                    <div className='bg-[#4c2216] p-6 rounded-2xl -ml-16'>
                                         <div className={`${bkReg.className} cursor-default text-center text-xxs md:text-xs lg:text-base text-stone-200 flex justify-center items-center scale-125`}>
                                             <div>
-                                                <div className='w-8 h-1.5 md:w-12 md:h-2 lg:w-16 lg:h-3 bg-mainOrange -mb-0.5 lg:-mb-1.5 rounded-t-3xl'></div>
+                                                <div className='w-8 h-1.5 md:w-12 md:h-2 lg:w-16 lg:h-3 bg-[#ec8740] -mb-0.5 lg:-mb-1.5 rounded-t-3xl'></div>
                                                 <div className='flex justify-center'>
                                                     <div>
                                                         <div className='-mb-1.5 md:-mb-2 lg:-mb-2.5 lg:mt-0.5'>BURGER</div>
                                                         <div className='mb-0.25'>SHACK</div>
                                                     </div>
                                                 </div>
-                                                <div className='w-8 h-1.5 md:w-12 md:h-2 lg:w-16 lg:h-3 bg-mainOrange -mt-0 lg:-mt-1 rounded-b-3xl'></div>
+                                                <div className='w-8 h-1.5 md:w-12 md:h-2 lg:w-16 lg:h-3 bg-[#ec8740] -mt-0 lg:-mt-1 rounded-b-3xl'></div>
                                             </div>
                                         </div>
                                     </div>
@@ -280,9 +280,9 @@ function Success() {
                             <div className='w-full h-1/2'>
                                 <div className='w-full h-1/3'></div>
                                 <div className='w-full h-1/3'>
-                                    <div className='w-full h-1/3 bg-mainText'></div>
-                                    <div className='w-full h-1/3 bg-mainRed'></div>
-                                    <div className='w-full h-1/3 bg-mainGreen'></div>
+                                    <div className='w-full h-1/3 bg-[#4c2216]'></div>
+                                    <div className='w-full h-1/3 bg-[#cd2917]'></div>
+                                    <div className='w-full h-1/3 bg-[#318636]'></div>
                                 </div>
                                 <div className='w-full h-1/3'></div>
                             </div>

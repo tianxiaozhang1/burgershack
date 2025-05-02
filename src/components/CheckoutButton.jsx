@@ -49,7 +49,7 @@ export default function CheckoutButton() {
                 // onClick={handleClick}
                 onClick={() => handleCartClick()}
                 
-                className="bg-mainBG hover:bg-mainText hover:text-white transition-colors duration-500 text-mainText py-3 px-5 rounded-md w-full disabled:bg-slate-300 cursor-pointer disabled:cursor-not-allowed disabled:text-white"
+                className="bg-[#f7f1e7] hover:bg-[#4c2216] hover:text-white transition-colors duration-500 text-[#4c2216] py-3 px-5 rounded-md w-full disabled:bg-slate-300 cursor-pointer disabled:cursor-not-allowed disabled:text-white"
                 disabled={
                   (totalPrice && totalPrice < 30) ||
                   (cartCount && cartCount > 50) ||

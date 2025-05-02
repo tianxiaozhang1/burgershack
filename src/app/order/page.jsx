@@ -24,19 +24,19 @@ const categoryBanner = "h-18 lg:h-22 xl:h-32 2xl:h-42 text-2xl lg:text-3xl xl:te
 // const categoryGrid = "px-6 md:px-0 max-w-md md:max-w-lg lg:max-w-4xl xl:max-w-6xl 2xl:max-w-7xl grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-3 gap-y-10 mx-auto mt-12 md:mt-32 md:-mb-8 lg:mt-16 xl:mt-20 xl:mb-6 mb-12"
 // const itemImage = "h-26 md:h-20 lg:h-42 flex items-end"
 // const itemText = `leading-5 md:text-xl text-center mt-2 md:mt-4 md:mb-22 lg:mt-4 lg:mb-8 ${patua_one.className}`
-// const categoryGallery = "max-w-56 md:max-w-72 lg:max-w-72 cursor-pointer bg-mainText rounded-3xl"
+// const categoryGallery = "max-w-56 md:max-w-72 lg:max-w-72 cursor-pointer bg-[#4c2216] rounded-3xl"
 const orderGallery = "grid grid-cols-2 lg:grid-cols-4 lg:max-w-[1600px] place-center flex-wrap mt-10 lg:mt-12 mx-auto justify-center gap-4"
 
 function Order() {
 
     return (
-        <div className='bg-mainBG'>
+        <div className='bg-[#f7f1e7]'>
             <Header/>
             
                 {/* BURGERS */}
                 <div className={`${bkBold.className}`}>
-                    <div className={`bg-mainText ${categoryBanner} `}>
-                        <div className='text-mainBG'>Flame-grilled burgers</div>
+                    <div className={`bg-[#4c2216] ${categoryBanner} `}>
+                        <div className='text-[#f7f1e7]'>Flame-grilled burgers</div>
                     </div>
                 </div>
 
@@ -49,7 +49,7 @@ function Order() {
                 {/* CHICKEN */}
                 <div className={` ${bkBold.className}`}>
                     <div className={`bg-[#cc5d20] ${categoryBanner} `}>
-                        <div className='text-mainBG'>Chicken burgers</div>
+                        <div className='text-[#f7f1e7]'>Chicken burgers</div>
                     </div>
                 </div>
 
@@ -62,7 +62,7 @@ function Order() {
                 {/* DRINKS */}
                 <div className={` ${bkBold.className}`}>
                     <div className={`bg-[#ce2816] ${categoryBanner} `}>
-                        <div className='text-mainBG'>Beverages</div>
+                        <div className='text-[#f7f1e7]'>Beverages</div>
                     </div>
                 </div>
 
@@ -75,7 +75,7 @@ function Order() {
                 {/* SNACKS */}
                 <div className={` ${bkBold.className}`}>
                     <div className={`bg-[#b13b2e] ${categoryBanner} `}>
-                        <div className='text-mainBG'>Sides and snacks</div>
+                        <div className='text-[#f7f1e7]'>Sides and snacks</div>
                     </div>
                 </div>
 
@@ -87,8 +87,8 @@ function Order() {
 
                 {/* SALADS */}
                 <div className={` ${bkBold.className}`}>
-                    <div className={`bg-mainGreen ${categoryBanner} `}>
-                        <div className='text-mainBG'>Plant-based, salads and wraps</div>
+                    <div className={`bg-[#318636] ${categoryBanner} `}>
+                        <div className='text-[#f7f1e7]'>Plant-based, salads and wraps</div>
                     </div>
                 </div>
 
@@ -100,8 +100,8 @@ function Order() {
 
                 {/* DESSERTS */}
                 <div className={` ${bkBold.className}`}>
-                    <div className={`bg-mainYellow ${categoryBanner} `}>
-                        <div className='text-mainBG'>Desserts</div>
+                    <div className={`bg-[#f6a91a] ${categoryBanner} `}>
+                        <div className='text-[#f7f1e7]'>Desserts</div>
                     </div>
                 </div>
 

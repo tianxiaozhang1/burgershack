@@ -71,7 +71,7 @@ function MainItems() {
                     topContent={
                         <div className="py-0 xl:h-80">
                             <div className='xl:h-20 bg-red-600 pt-0.25 rounded-t-2xl overflow-hidden'>
-                                <div className='bg-mainText h-3 w-full '></div>
+                                <div className='bg-[#4c2216] h-3 w-full '></div>
                                 <div className='h-14 w-full'>
                                     <div className='h-1/3 w-full bg-red-500 z-10'></div>
                                     <div className='h-1/3 w-full bg-orange-500 z-10 flex justify-center items-center'>
@@ -81,7 +81,7 @@ function MainItems() {
                                     <div className='h-1/3 w-full bg-yellow-500 z-10'></div>
                                     
                                 </div>
-                                <div className='bg-mainText h-3 w-full'></div>
+                                <div className='bg-[#4c2216] h-3 w-full'></div>
                             </div>
                             <div className='flex justify-center item-center py-2 lg:h-60 h-52 lg:py-2'>
                                 <div className={`-ml-2 lg:-ml-8 bg-red-600 text-6xl lg:text-8xl h-20 w-20 lg:h-32 lg:w-32 z-10  rounded-full border-8 border-white 
@@ -113,7 +113,7 @@ function MainItems() {
 
                                 <div className="my-2">
                                     <a href='/menu'>
-                                        <div className={`${bkSans.className} rounded-3xl text-base border-2 border-mainText hover:border-stone-500 w-36 py-2 flex justify-center text-center cursor-pointer `}>
+                                        <div className={`${bkSans.className} rounded-3xl text-base border-2 border-[#4c2216] hover:border-stone-500 w-36 py-2 flex justify-center text-center cursor-pointer `}>
                                             Order Now
                                         </div>
                                     </a>
@@ -123,7 +123,7 @@ function MainItems() {
                     }
                 />
                 <MainPageItem
-                    topClassName="bg-mainBG lg:pb-0 rounded-t-xl overflow-hidden mt-6 md:mt-0"
+                    topClassName="bg-[#f7f1e7] lg:pb-0 rounded-t-xl overflow-hidden mt-6 md:mt-0"
                     btmClassName="bg-white"
                     topContent={
                         <div className="py-0 h-72 lg:h-82 flex bg-orange-50">
@@ -169,7 +169,7 @@ function MainItems() {
 
                                 <div className="my-2">
                                     <a href='/menu'>
-                                        <div className={`${bkSans.className} rounded-3xl text-base border-2 border-mainText hover:border-stone-500 w-36 py-2 flex justify-center text-center cursor-pointer `}>
+                                        <div className={`${bkSans.className} rounded-3xl text-base border-2 border-[#4c2216] hover:border-stone-500 w-36 py-2 flex justify-center text-center cursor-pointer `}>
                                             Order Now
                                         </div>
                                     </a>
@@ -223,24 +223,24 @@ function MainItems() {
             <div>
                 <div className='w-full h-18 md:h-24 lg:h-36'></div>
                 <div className='w-full h-44 md:h-66 lg:h-88 flex'>
-                    <div className='w-1/2 bg-mainBGDarker flex justify-end pr-2 md:pr-6 lg:pr-8'>
-                        <div className='w-40 md:w-60 lg:w-80 h-56 md:h-84 lg:h-112 bg:mainBG -mt-12 md:-mt-18 lg:-mt-24 bg-mainBGmainBGDarker border-t-8 border-x-8 border-mainText rounded-t-3xl overflow-hidden'>
+                    <div className='w-1/2 bg-[#ece0cb] flex justify-end pr-2 md:pr-6 lg:pr-8'>
+                        <div className='w-40 md:w-60 lg:w-80 h-56 md:h-84 lg:h-112 bg:[#f7f1e7] -mt-12 md:-mt-18 lg:-mt-24 bg-[#f7f1e7][#ece0cb] border-t-8 border-x-8 border-[#4c2216] rounded-t-3xl overflow-hidden'>
                             <div className='h-6 md:h-8 lg:h-12 w-full rounded-t-xl mt-2'>
                                 {/* LOGO */}
-                                <div className={`${bkReg.className} cursor-default text-center text-xxs md:text-xs lg:text-base text-mainText flex justify-center items-center`}>
+                                <div className={`${bkReg.className} cursor-default text-center text-xxs md:text-xs lg:text-base text-[#4c2216] flex justify-center items-center`}>
                                     <div>
-                                        <div className='w-8 h-1.5 md:w-12 md:h-2 lg:w-16 lg:h-3 bg-mainOrange -mb-0.5 lg:-mb-1.5 rounded-t-3xl'></div>
+                                        <div className='w-8 h-1.5 md:w-12 md:h-2 lg:w-16 lg:h-3 bg-[#ec8740] -mb-0.5 lg:-mb-1.5 rounded-t-3xl'></div>
                                         <div className='flex justify-center'>
                                             <div>
                                                 <div className='-mb-1.5 md:-mb-2 lg:-mb-2.5 lg:mt-0.5'>BURGER</div>
                                                 <div>SHACK</div>
                                             </div>
                                         </div>
-                                        <div className='w-8 h-1.5 md:w-12 md:h-2 lg:w-16 lg:h-3 bg-mainOrange -mt-0.5 lg:-mt-1 rounded-b-3xl'></div>
+                                        <div className='w-8 h-1.5 md:w-12 md:h-2 lg:w-16 lg:h-3 bg-[#ec8740] -mt-0.5 lg:-mt-1 rounded-b-3xl'></div>
                                     </div>
                                 </div>
                             </div>
-                            <div className='bg-mainBG w-full h-fit mt-2 md:pt-2 lg:pt-2 grid gap-2 px-2'>
+                            <div className='bg-[#f7f1e7] w-full h-fit mt-2 md:pt-2 lg:pt-2 grid gap-2 px-2'>
                                 <div className='w-full h-16 md:h-24 lg:h-32 rounded-3xl overflow-hidden'>
                                     <Image
                                         src={HomeMenu1}
@@ -262,7 +262,7 @@ function MainItems() {
                             </div>
                         </div>
                     </div>
-                    <div className='w-1/2 bg-mainBGDarker pl-2 md:pl-2 lg:pl-8 md:pt-2 lg:pt-6 text-mainText'>
+                    <div className='w-1/2 bg-[#ece0cb] pl-2 md:pl-2 lg:pl-8 md:pt-2 lg:pt-6 text-[#4c2216]'>
                         <div className='w-4/5 md:w-full'>
                             <div className={`${bkReg.className} text-sm mt-4 md:mt-4 md:text-3xl lg:text-5xl lg:w-1/2 lg:leading-[1]`}>Order now from the App!</div>
                             <div className='flex md:mt-2 lg:mt-6'>

@@ -29,7 +29,7 @@ import Location8 from '../../images/maps/8.png'
 
 const DEFAULT_CENTER = { lat: 43.656520438353645, lng: -79.38076436519623 }
 const locationButton = `py-1.5 text-base px-3 border-2 rounded-2xl cursor-pointer flex`
-const selectedButtons = `border-mainText text-mainText hover:bg-mainText hover:text-stone-100`
+const selectedButtons = `border-[#4c2216] text-[#4c2216] hover:bg-[#4c2216] hover:text-stone-100`
 const unselectedButtons = `border-stone-400 text-stone-500 hover:bg-stone-400 hover:text-white`
 
 const GoogleMapsAPIKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY
@@ -91,20 +91,20 @@ const MarkerWithInfoWindow = ({position, name, address}) => {
         </AdvancedMarker>
   
         {infoWindowShown && (
-          <InfoWindow className='' headerContent={<h3 className={`text-mainText text-xl py-1 flex shadow-2xl ${bkReg.className}`}>
+          <InfoWindow className='' headerContent={<h3 className={`text-[#4c2216] text-xl py-1 flex shadow-2xl ${bkReg.className}`}>
             <StoreIcon/>
             {name}
             </h3>} anchor={marker} onClose={handleClose}>
-            <div className={`text-mainText`}>
+            <div className={`text-[#4c2216]`}>
                 <h2 className={`font-semibold pt-1 mb-3`}>{address}</h2>
                 <div className={`flex ${bkReg.className} space-x-1 text-base`}>
-                    <div className='pt-2 pb-2.5 px-4 bg-mainGreen text-mainBG rounded-2xl cursor-pointer'>
+                    <div className='pt-2 pb-2.5 px-4 bg-[#318636] text-[#f7f1e7] rounded-2xl cursor-pointer'>
                         Open
                     </div>
-                    <div className='pt-2 pb-2.5 px-4 bg-mainText text-stone-50 rounded-2xl cursor-pointer'>
+                    <div className='pt-2 pb-2.5 px-4 bg-[#4c2216] text-stone-50 rounded-2xl cursor-pointer'>
                         Order
                     </div>
-                    <div className='pt-2 pb-2.5 px-4 bg-[#106898] text-mainBG rounded-2xl cursor-pointer'>
+                    <div className='pt-2 pb-2.5 px-4 bg-[#106898] text-[#f7f1e7] rounded-2xl cursor-pointer'>
                         Call
                     </div>
                 </div>
@@ -140,8 +140,8 @@ function Locations() {
             <APIProvider apiKey={GoogleMapsAPIKey}>
             <Header/>
 
-            <div className={`bg-mainText ${bkReg.className} ${categoryBanner}`}>
-                <div className='text-mainBG'>Locations</div>
+            <div className={`bg-[#4c2216] ${bkReg.className} ${categoryBanner}`}>
+                <div className='text-[#f7f1e7]'>Locations</div>
             </div>
 
             {/* SCREEN SHOT GRID SOLUTION */}             
@@ -149,18 +149,18 @@ function Locations() {
                 <div className='mt-4 mb-2  lg:mt-4 px-6 lg:max-w-6xl lg:px-2 xl:px-0 xl:max-w-7xl mx-auto grid gap-y-2 md:gap-y-2 md:grid md:grid-cols-1  lg:grid-cols-2 lg:scale-100 md:gap-x-2 lg:grid xl:grid-cols-3 lg:gap-x-3 xl:gap-3'> 
                         {locationInfo.map((location, i) => {
                             return (
-                                <div key={i} className={`bg-white text-xl mx-0 border-2 cursor-pointer md:w-[400px] ${location.indexSq === highlightLocation ? "border-mainText" : "border-stone-200"} rounded-xl w-full px-3 py-3 ${bkReg.className}`}
+                                <div key={i} className={`bg-white text-xl mx-0 border-2 cursor-pointer md:w-[400px] ${location.indexSq === highlightLocation ? "border-[#4c2216]" : "border-stone-200"} rounded-xl w-full px-3 py-3 ${bkReg.className}`}
                                     onClick={(e)=>{handleButtonClick(location)}}
                                 >
                                     <div className='flex'>
                                         
-                                        <div className={`flex ${location.indexSq === highlightLocation ? "text-mainText" : "text-stone-600"}`}>
+                                        <div className={`flex ${location.indexSq === highlightLocation ? "text-[#4c2216]" : "text-stone-600"}`}>
                                             <div className='mt-0.5'><StoreIcon/></div>
                                             <div className='cursor-pointer'>{location.name}</div>
                                         </div>
-                                        <div className={`hidden 2xl:flex ${location.indexSq === highlightLocation ? "bg-mainGreen" : "bg-[#779649]"} text-base py-0.5 px-2 rounded-xl ml-2 mt-0.25 text-stone-50`}>Open Now</div>
+                                        <div className={`hidden 2xl:flex ${location.indexSq === highlightLocation ? "bg-[#318636]" : "bg-[#779649]"} text-base py-0.5 px-2 rounded-xl ml-2 mt-0.25 text-stone-50`}>Open Now</div>
                                     </div>
-                                    <div className={`text-mainText mt-1`}>
+                                    <div className={`text-[#4c2216] mt-1`}>
 
                                         <div className='flex'>
                                             <div className={`${location.indexSq === highlightLocation ? "text-[#4994C4]" : "text-[#106898]"} mt-1 mr-1`}><PinIcon/></div>
@@ -172,7 +172,7 @@ function Locations() {
                                                 <div className='mt-0'>Visit Us</div>
                                             </div>
 
-                                            <div className={` 2xl:hidden text-stone-50 ${locationButton} border-0 ${location.indexSq === highlightLocation ? "bg-mainGreen" : "bg-[#779649]"}`}>
+                                            <div className={` 2xl:hidden text-stone-50 ${locationButton} border-0 ${location.indexSq === highlightLocation ? "bg-[#318636]" : "bg-[#779649]"}`}>
                                                 <div className='mt-0'>Open</div>
                                             </div>
 
@@ -211,21 +211,21 @@ function Locations() {
                 {/* LIVE MAP SOLUTION LEFT COLUMN */}
                 <div className='flex lg:w-1/3 xl:w-1/4 h-full mr-2 overflow-y-scroll'>
                     <div className='px-2 space-y-2 w-[400px] mx-auto'>
-                        <div className={`bg-mainText text-2xl text-center py-3 rounded-xl text-mainBG mt-4 lg:mt-0 ${bkReg.className}`}>Restaurants</div>
+                        <div className={`bg-[#4c2216] text-2xl text-center py-3 rounded-xl text-[#f7f1e7] mt-4 lg:mt-0 ${bkReg.className}`}>Restaurants</div>
                         {locationInfo.map((location, i) => {
                             return (
-                                <div key={i} className={`bg-white text-xl w-full border-2 cursor-pointer ${location.indexSq === highlightLocation ? "border-mainText" : "border-stone-200"} rounded-xl w-full px-3 py-3 ${bkReg.className}`}
+                                <div key={i} className={`bg-white text-xl w-full border-2 cursor-pointer ${location.indexSq === highlightLocation ? "border-[#4c2216]" : "border-stone-200"} rounded-xl w-full px-3 py-3 ${bkReg.className}`}
                                     onClick={(e)=>{handleButtonClick(location)}}
                                 >
                                     <div className='flex'>
                                         
-                                        <div className={`flex ${location.indexSq === highlightLocation ? "text-mainText" : "text-stone-600"}`}>
+                                        <div className={`flex ${location.indexSq === highlightLocation ? "text-[#4c2216]" : "text-stone-600"}`}>
                                             <div className='mt-0.5'><StoreIcon/></div>
                                             <div className='cursor-pointer'>{location.name}</div>
                                         </div>
-                                        <div className={`hidden 2xl:flex ${location.indexSq === highlightLocation ? "bg-mainGreen" : "bg-[#779649]"} text-base py-0.5 px-2 rounded-xl ml-2 mt-0.25 text-stone-50`}>Open Now</div>
+                                        <div className={`hidden 2xl:flex ${location.indexSq === highlightLocation ? "bg-[#318636]" : "bg-[#779649]"} text-base py-0.5 px-2 rounded-xl ml-2 mt-0.25 text-stone-50`}>Open Now</div>
                                     </div>
-                                    <div className={`text-mainText mt-1`}>
+                                    <div className={`text-[#4c2216] mt-1`}>
 
                                         <div className='flex'>
                                             <div className={`${location.indexSq === highlightLocation ? "text-[#4994C4]" : "text-[#106898]"} mt-1 mr-1`}><PinIcon/></div>
@@ -237,7 +237,7 @@ function Locations() {
                                                 <div className='mt-0'>Visit Us</div>
                                             </div>
 
-                                            <div className={` 2xl:hidden text-stone-50 ${locationButton} border-0 ${location.indexSq === highlightLocation ? "bg-mainGreen" : "bg-[#779649]"}`}>
+                                            <div className={` 2xl:hidden text-stone-50 ${locationButton} border-0 ${location.indexSq === highlightLocation ? "bg-[#318636]" : "bg-[#779649]"}`}>
                                                 <div className='mt-0'>Open</div>
                                             </div>
 

@@ -52,7 +52,7 @@ function Footer() {
         </div>
 
     return (
-        <div className='border-stone-300 border-t-2 lg:border-t-4 w-full bg-mainBG flex items-center justify-between h-20 md:h-24 lg:h-26 xl:h-32'>
+        <div className='border-stone-300 border-t-2 lg:border-t-4 w-full bg-[#f7f1e7] flex items-center justify-between h-20 md:h-24 lg:h-26 xl:h-32'>
             <IconList/>
         </div>
     )

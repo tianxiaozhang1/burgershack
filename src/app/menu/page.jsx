@@ -297,18 +297,18 @@ const categoryGallery = "max-w-56 md:max-w-72 lg:max-w-72 cursor-pointer"
 
 function Menu() {
     return (
-        <div className={`bg-mainBG`}>
+        <div className={`bg-[#f7f1e7]`}>
             <div className="z-40 sticky top-0"><Header/></div>
 
             <div className={` ${bkBold.className}`}>
 
-                <div className='bg-mainBG h-18 md:h-20 lg:h-20 xl:h-32 flex justify-center items-center'>
-                    <div className='text-mainText text-3xl lg:text-4xl xl:text-6xl cursor-default'>Menu</div>
+                <div className='bg-[#f7f1e7] h-18 md:h-20 lg:h-20 xl:h-32 flex justify-center items-center'>
+                    <div className='text-[#4c2216] text-3xl lg:text-4xl xl:text-6xl cursor-default'>Menu</div>
                 </div>
 
                 {/* BURGERS */}
-                <div className={`bg-mainText ${categoryBanner}`}>
-                    <div className='text-mainBG'>Flame-grilled burgers</div>
+                <div className={`bg-[#4c2216] ${categoryBanner}`}>
+                    <div className='text-[#f7f1e7]'>Flame-grilled burgers</div>
                 </div>
 
                 <div className={`${categoryGrid}`}>
@@ -334,7 +334,7 @@ function Menu() {
                 {/* CHICKEN */}
                 <div className={`bg-[#cc5d20] ${categoryBanner}`}>
                 
-                    <div className=' text-mainBG text-4xl'>Chicken burgers</div>
+                    <div className=' text-[#f7f1e7] text-4xl'>Chicken burgers</div>
                 </div>
                 <div className={`${categoryGrid}`}>
                     {chickenCategories.map((chicken, i) => {
@@ -358,7 +358,7 @@ function Menu() {
 
                 {/* DRINKS */}
                 <div className={`bg-[#ce2816] ${categoryBanner}`}>
-                    <div className=' text-mainBG text-4xl'>Beverages</div>
+                    <div className=' text-[#f7f1e7] text-4xl'>Beverages</div>
                 </div>
                 <div className={`${categoryGrid}`}>
                     {drinkCategories.map((drink, i) => {
@@ -382,7 +382,7 @@ function Menu() {
 
                 {/* SIDES */}
                 <div className={`bg-[#b13b2e] ${categoryBanner}`}>
-                    <div className=' text-mainBG'>Sides and snacks</div>
+                    <div className=' text-[#f7f1e7]'>Sides and snacks</div>
                 </div>
 
                 <div className={`${categoryGrid}`}>
@@ -406,8 +406,8 @@ function Menu() {
                 </div>
 
                 {/* SALADS */}
-                <div className={`bg-mainGreen ${categoryBanner}`}>
-                    <div className=' text-mainBG'>Plant-based, salads and wraps</div>
+                <div className={`bg-[#318636] ${categoryBanner}`}>
+                    <div className=' text-[#f7f1e7]'>Plant-based, salads and wraps</div>
                 </div>
 
                 <div className={`${categoryGrid}`}>
@@ -431,8 +431,8 @@ function Menu() {
                 </div>
 
                 {/* DESSERTS */} 
-                <div className={`bg-mainYellow ${categoryBanner}`}>
-                    <div className=' text-mainText'>Desserts</div>
+                <div className={`bg-[#f6a91a] ${categoryBanner}`}>
+                    <div className=' text-[#4c2216]'>Desserts</div>
                 </div>
 
                 <div className={`${categoryGrid}`}>
