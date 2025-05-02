@@ -9,7 +9,7 @@ const patua_one = Patua_One({ subsets: ['latin'], weight: ['400'], })
 
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
-import OpenSign from '../../components/OpenSign';
+// import OpenSign from '../../components/OpenSign';
 
 function Contact() {
     const middle = "flex justify-center text-center"
