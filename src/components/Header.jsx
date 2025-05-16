@@ -2,6 +2,8 @@
 import React from 'react'
 
 import localFont from 'next/font/local' 
+import Link from 'next/link'
+
 import { usePathname } from 'next/navigation'
 
 import { useShoppingCart } from "use-shopping-cart";
@@ -37,7 +39,18 @@ function Header() {
         <div className='z-10 sticky top-0 h-20 w-full lg:h-24 py-1 xl:py-1.5 2xl:py-2 bg-[#f7f1e7] flex items-center border-b-2 border-stone-300'>
             <div className='lg:max-w-7xl w-full px-6 mx-auto flex justify-between items-center'>
 
-                <div className='w-60'></div>
+                <div className='flex justify-start gap-2 w-60'>
+                    <Link href="/profile">
+                        <div className='flex bg-[#318636] hover:bg-[#318636] cursor-pointer rounded-3xl px-2 lg:px-6 py-2 text-stone-50 items-center'>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-6 lg:size-7 cursor-pointer">
+                                <path fillRule="evenodd" d="M7.5 6a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0ZM3.751 20.105a8.25 8.25 0 0 1 16.498 0 .75.75 0 0 1-.437.695A18.683 18.683 0 0 1 12 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 0 1-.437-.695Z" clipRule="evenodd" />
+                            </svg>
+                            <div className={`${bkReg.className} ml-1 text-base hidden lg:flex`}>
+                                My Profile
+                            </div>
+                        </div>
+                    </Link>
+                </div>
 
                 <a href='/'>
                     <div className={`${bkReg.className} text-center text-base lg:text-xl text-[#4c2216] flex justify-center items-center`}>
@@ -55,13 +68,13 @@ function Header() {
                 </a>
 
                 <div className='flex justify-end gap-2 w-60'>
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" className="size-6 lg:size-7 cursor-pointer hidden ">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" className="size-6 lg:size-7 cursor-pointer hidden">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
                     </svg>
 
                     {pathname === "/success" ? (<div></div>) : 
                     (
-                        <div className='flex bg-[#cd2917] hover:bg-[#cd2917]Darker cursor-pointer rounded-3xl px-6 py-2 text-stone-50 items-center z-10 ' onClick={() => handleCartClick()}>
+                        <div className='flex bg-[#cd2917] hover:bg-[#cd2917]Darker cursor-pointer rounded-3xl  px-3 lg:px-6 py-2 text-stone-50 items-center z-10 ' onClick={() => handleCartClick()}>
                             {/* <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" className="size-6 lg:size-7 cursor-pointer">
                                 <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
                             </svg> */}
@@ -70,7 +83,7 @@ function Header() {
                                 <path fillRule="evenodd" d="M7.5 6v.75H5.513c-.96 0-1.764.724-1.865 1.679l-1.263 12A1.875 1.875 0 0 0 4.25 22.5h15.5a1.875 1.875 0 0 0 1.865-2.071l-1.263-12a1.875 1.875 0 0 0-1.865-1.679H16.5V6a4.5 4.5 0 1 0-9 0ZM12 3a3 3 0 0 0-3 3v.75h6V6a3 3 0 0 0-3-3Zm-3 8.25a3 3 0 1 0 6 0v-.75a.75.75 0 0 1 1.5 0v.75a4.5 4.5 0 1 1-9 0v-.75a.75.75 0 0 1 1.5 0v.75Z" clipRule="evenodd" />
                             </svg>
 
-                            <div className={`${bkReg.className} ml-1 text-base flex`}> 
+                            <div className={`${bkReg.className} ml-0.25 lg:ml-1 text-base flex`}> 
                                 <div className='hidden lg:flex'>View Order</div> ({cartCount})</div>
 
                         </div>

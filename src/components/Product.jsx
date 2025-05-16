@@ -36,7 +36,7 @@ const MinusIcon = () => {
   )
 }
 
-export default function Product({ product }) {
+export default function Product({ product, displayOrderOptions }) {
     const { name, price, image, cals } = product;
     const [quantity, setQuantity] = useState(1);
     const { addItem } = useShoppingCart();
@@ -67,12 +67,12 @@ export default function Product({ product }) {
             </div>
             
             <div className={`${itemText} `}>
-                <div className="text-2xl">
+                <div className={`text-2xl ${displayOrderOptions === true ? `` : `-mb-12`}`}>
                     {name}
                 </div>
             </div>
 
-            <div className="flex lg:-mt-6 justify-center">
+            <div className={`flex lg:-mt-6 justify-center ${displayOrderOptions === true ? `flex` : `hidden`}`}>
                 <div className="flex items-center space-x-2">
                     <div className={`md:text-xl text-center  ${patua_one.className}`}>
                         {formatCurrencyString({ value: price, currency: "CAD" })}
@@ -83,7 +83,7 @@ export default function Product({ product }) {
                 </div>
             </div>
 
-            <div className="flex justify-center mt-1 mb-2 lg:text-xl text-stone-400">
+            <div className={`flex justify-center mt-1 mb-2 lg:text-xl text-stone-400 ${displayOrderOptions === true ? `flex` : `hidden`}`}>
                 <div className="flex">
                   <div className="hover:text-[#4c2216]" onClick={decreaseQuantity}><MinusIcon /></div>
                   <span className={`w-2 text-center rounded-md mx-3 text-[#4c2216] ${bkSans.className}`}>{quantity}</span>
@@ -91,7 +91,7 @@ export default function Product({ product }) {
                 </div>
             </div>
 
-            <div className="w-full flex justify-center">
+            <div className={`w-full flex justify-center ${displayOrderOptions === true ? `flex` : `hidden`}`}>
                 <button onClick={() => addToCart()} className={`lg:text-lg mx-auto bg-[#cd2917] hover:bg-[#cd2917]Darker text-stone-50 transition-colors duration-500 cursor-pointer rounded-3xl px-8 lg:px-16 py-2 ${bkReg.className}`}>
                   Add - {formatCurrencyString({ value: price*quantity, currency: "CAD" })}
                 </button>
@@ -127,6 +127,7 @@ export default function Product({ product }) {
                   Add to cart
                 </button>
             </article>
+             
 
         </div> 
 

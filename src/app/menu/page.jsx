@@ -71,226 +71,229 @@ import Dessert6 from '../../images/desserts/dessert6.png'
 import Dessert7 from '../../images/desserts/dessert7.png'
 import Dessert8 from '../../images/desserts/dessert8.png'
 
-const burgerCategories = [
-    {
-        image: Burger1,
-        name: "Double Cheeseburger"
-    },
-    {
-        image: Burger2,
-        name: "Double Cheese Burger"
-    },
-    {
-        image: Burger3,
-        name: "Big Monster"
-    },
-    {
-        image: Burger4,
-        name: "Monster Cheese"
-    },
-    {
-        image: Burger5,
-        name: "Long Bacon Sandwich"
-    },
-    {
-        image: Burger6,
-        name: "Long Cheeseburger"
-    },
-    {
-        image: Burger7,
-        name: "Steakhouse"
-    },
-    {
-        image: Burger8,
-        name: "Double Monster"
-    },
-    {
-        image: Burger9,
-        name: "Monster"
-    },
-    {
-        image: Burger10,
-        name: "Monster Jr Cheese"
-    },
-    {
-        image: Burger11,
-        name: "Monster Jr Gluten Free"
-    },
-    {
-        image: Burger12,
-        name: "Bacon Monster"
-    },
-]
+import { products } from '../../data/products'
+import Product from '../../components/Product'
 
-const chickenCategories = [
-    {
-        image: Chicken1,
-        name: "Crispy Chicken Cheese"
-    },
-    {
-        image: Chicken2,
-        name: "Crispy Chicken"
-    },
-    {
-        image: Chicken3,
-        name: "Chicken Tendercrisp Cheese"
-    },
-    {
-        image: Chicken4,
-        name: "Chicken Tendercrisp"
-    },
-    {
-        image: Chicken5,
-        name: "Chili Cheese Chicken"
-    },
-    {
-        image: Chicken6,
-        name: "Texas Chicken"
-    },
-    {
-        image: Chicken7,
-        name: "Long Chicken"
-    },
-]
+// const burgerCategories = [
+//     {
+//         image: Burger1,
+//         name: "Double Cheeseburger"
+//     },
+//     {
+//         image: Burger2,
+//         name: "Double Cheese Burger"
+//     },
+//     {
+//         image: Burger3,
+//         name: "Big Monster"
+//     },
+//     {
+//         image: Burger4,
+//         name: "Monster Cheese"
+//     },
+//     {
+//         image: Burger5,
+//         name: "Long Bacon Sandwich"
+//     },
+//     {
+//         image: Burger6,
+//         name: "Long Cheeseburger"
+//     },
+//     {
+//         image: Burger7,
+//         name: "Steakhouse"
+//     },
+//     {
+//         image: Burger8,
+//         name: "Double Monster"
+//     },
+//     {
+//         image: Burger9,
+//         name: "Monster"
+//     },
+//     {
+//         image: Burger10,
+//         name: "Monster Jr Cheese"
+//     },
+//     {
+//         image: Burger11,
+//         name: "Monster Jr Gluten Free"
+//     },
+//     {
+//         image: Burger12,
+//         name: "Bacon Monster"
+//     },
+// ]
 
-const drinkCategories = [
-    {
-        image: Drink1,
-        name: "Soft Drink"
-    },
-    {
-        image: Drink2,
-        name: "Fuzetea"
-    },
-    {
-        image: Drink3,
-        name: "Coffee"
-    },
-    {
-        image: Drink4,
-        name: "Flat White"
-    },
-    {
-        image: Drink5,
-        name: "Cappuccino"
-    },
-    {
-        image: Drink6,
-        name: "Hot Chocolate"
-    },
-    {
-        image: Drink7,
-        name: "Latte"
-    },
-    {
-        image: Drink8,
-        name: "Tea"
-    },
-]
+// const chickenCategories = [
+//     {
+//         image: Chicken1,
+//         name: "Crispy Chicken Cheese"
+//     },
+//     {
+//         image: Chicken2,
+//         name: "Crispy Chicken"
+//     },
+//     {
+//         image: Chicken3,
+//         name: "Chicken Tendercrisp Cheese"
+//     },
+//     {
+//         image: Chicken4,
+//         name: "Chicken Tendercrisp"
+//     },
+//     {
+//         image: Chicken5,
+//         name: "Chili Cheese Chicken"
+//     },
+//     {
+//         image: Chicken6,
+//         name: "Texas Chicken"
+//     },
+//     {
+//         image: Chicken7,
+//         name: "Long Chicken"
+//     },
+// ]
 
-const snackCategories = [
-    {
-        image: Snack1,
-        name: "Cheesy Onion Fries"
-    },
-    {
-        image: Snack2,
-        name: "Chili Cheese Fries"
-    },
-    {
-        image: Snack3,
-        name: "Mozzarella sticks"
-    },
-    {
-        image: Snack4,
-        name: "Onion Rings"
-    },
-    {
-        image: Snack5,
-        name: "Chicken Nuggets + Dip"
-    },
-    {
-        image: Snack6,
-        name: "Plant-based Nuggets + Dip"
-    },
-    {
-        image: Snack7,
-        name: "Chilli Cheese Bites"
-    },
-]
+// const drinkCategories = [
+//     {
+//         image: Drink1,
+//         name: "Soft Drink"
+//     },
+//     {
+//         image: Drink2,
+//         name: "Fuzetea"
+//     },
+//     {
+//         image: Drink3,
+//         name: "Coffee"
+//     },
+//     {
+//         image: Drink4,
+//         name: "Flat White"
+//     },
+//     {
+//         image: Drink5,
+//         name: "Cappuccino"
+//     },
+//     {
+//         image: Drink6,
+//         name: "Hot Chocolate"
+//     },
+//     {
+//         image: Drink7,
+//         name: "Latte"
+//     },
+//     {
+//         image: Drink8,
+//         name: "Tea"
+//     },
+// ]
 
-const saladCategories = [
-    {
-        image: Salad1,
-        name: "Beef wrap"
-    },
-    {
-        image: Salad2,
-        name: "Vege wrap"
-    },
-    {
-        image: Salad3,
-        name: "Halloumi wrap"
-    },
-    {
-        image: Salad4,
-        name: "BBQ chicken wrap"
-    },
-    {
-        image: Salad5,
-        name: "BBQ Plant-Based Long Chicken Wrap"
-    },
-    {
-        image: Salad6,
-        name: "Chicken Salad"
-    },
-    {
-        image: Salad7,
-        name: "Delight Salad"
-    },
-    {
-        image: Salad8,
-        name: "Halloumi Salad"
-    },
-]
+// const snackCategories = [
+//     {
+//         image: Snack1,
+//         name: "Cheesy Onion Fries"
+//     },
+//     {
+//         image: Snack2,
+//         name: "Chili Cheese Fries"
+//     },
+//     {
+//         image: Snack3,
+//         name: "Mozzarella sticks"
+//     },
+//     {
+//         image: Snack4,
+//         name: "Onion Rings"
+//     },
+//     {
+//         image: Snack5,
+//         name: "Chicken Nuggets + Dip"
+//     },
+//     {
+//         image: Snack6,
+//         name: "Plant-based Nuggets + Dip"
+//     },
+//     {
+//         image: Snack7,
+//         name: "Chilli Cheese Bites"
+//     },
+// ]
 
-const dessertCategories = [
-    {
-        image: Dessert1,
-        name: "Mini Churros with Caramel Sauce"
-    },
-    {
-        image: Dessert2,
-        name: "Mini Churros with Strawberry Sauce"
-    },
-    {
-        image: Dessert3,
-        name: "Mini Churros with Chocolate Sauce"
-    },
-    {
-        image: Dessert4,
-        name: "Caramel Sundae"
-    },
-    {
-        image: Dessert5,
-        name: "Chocolate Sundae"
-    },
-    {
-        image: Dessert6,
-        name: "Sundae"
-    },
-    {
-        image: Dessert7,
-        name: "Milkshake Nesquik®"
-    },
-    {
-        image: Dessert8,
-        name: "Strawberry Milkshake"
-    },
-]
+// const saladCategories = [
+//     {
+//         image: Salad1,
+//         name: "Beef wrap"
+//     },
+//     {
+//         image: Salad2,
+//         name: "Vege wrap"
+//     },
+//     {
+//         image: Salad3,
+//         name: "Halloumi wrap"
+//     },
+//     {
+//         image: Salad4,
+//         name: "BBQ chicken wrap"
+//     },
+//     {
+//         image: Salad5,
+//         name: "BBQ Plant-Based Long Chicken Wrap"
+//     },
+//     {
+//         image: Salad6,
+//         name: "Chicken Salad"
+//     },
+//     {
+//         image: Salad7,
+//         name: "Delight Salad"
+//     },
+//     {
+//         image: Salad8,
+//         name: "Halloumi Salad"
+//     },
+// ]
+
+// const dessertCategories = [
+//     {
+//         image: Dessert1,
+//         name: "Mini Churros with Caramel Sauce"
+//     },
+//     {
+//         image: Dessert2,
+//         name: "Mini Churros with Strawberry Sauce"
+//     },
+//     {
+//         image: Dessert3,
+//         name: "Mini Churros with Chocolate Sauce"
+//     },
+//     {
+//         image: Dessert4,
+//         name: "Caramel Sundae"
+//     },
+//     {
+//         image: Dessert5,
+//         name: "Chocolate Sundae"
+//     },
+//     {
+//         image: Dessert6,
+//         name: "Sundae"
+//     },
+//     {
+//         image: Dessert7,
+//         name: "Milkshake Nesquik®"
+//     },
+//     {
+//         image: Dessert8,
+//         name: "Strawberry Milkshake"
+//     },
+// ]
 
 const categoryBanner = "h-18 lg:h-22 xl:h-32 2xl:h-42 text-2xl lg:text-3xl xl:text-4xl flex justify-center items-center cursor-default"
-const categoryGrid = "px-6 md:px-0 max-w-md md:max-w-lg lg:max-w-4xl xl:max-w-6xl 2xl:max-w-7xl grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-3 gap-y-10 mx-auto mt-12 md:mt-32 md:-mb-8 lg:mt-16 xl:mt-20 xl:mb-6 mb-12"
+const categoryGrid = "px-6 md:px-0 max-w-md md:max-w-lg lg:max-w-4xl xl:max-w-6xl 2xl:max-w-7xl grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-3 gap-y-10 mx-auto mt-12 md:mt-32 md:-mb-8 lg:mt-16 xl:mt-20 xl:mb-18 mb-12"
 const itemImage = "h-26 md:h-20 lg:h-42 flex items-end"
 const itemText = `leading-5 md:text-xl text-center mt-2 md:mt-4 md:mb-22 lg:mt-4 lg:mb-8 ${patua_one.className}`
 const categoryGallery = "max-w-56 md:max-w-72 lg:max-w-72 cursor-pointer"
@@ -312,72 +315,34 @@ function Menu() {
                 </div>
 
                 <div className={`${categoryGrid}`}>
-                    {burgerCategories.map((burger, i) => {
-                        return (
-                            <div className={`${categoryGallery}`} key={i} >
-                                <div className={`${itemImage}`}>
-                                    <Image
-                                        src={burger.image}
-                                        alt="X"
-                                        className='w-full'
-                                    />
-                                </div>
-                                
-                                <div className={`${itemText}`}>
-                                    {burger.name}
-                                </div>
-                            </div> 
-                        )
-                    })}  
+                    {products.slice(0,12).map((product) => (
+                        <Product product={product} key={product.id} />
+                    ))}
                 </div>
+
+                <div></div>
 
                 {/* CHICKEN */}
                 <div className={`bg-[#cc5d20] ${categoryBanner}`}>
                 
                     <div className=' text-[#f7f1e7] text-4xl'>Chicken burgers</div>
                 </div>
+
                 <div className={`${categoryGrid}`}>
-                    {chickenCategories.map((chicken, i) => {
-                        return (
-                            <div className={`${categoryGallery}`} key={i} >
-                                <div className={`${itemImage}`}>
-                                    <Image
-                                        src={chicken.image}
-                                        alt="X"
-                                        className='w-full'
-                                    />
-                                </div>
-                                
-                                <div className={`${itemText}`}>
-                                    {chicken.name}
-                                </div>
-                            </div> 
-                        )
-                    })}  
+                    {products.slice(12,19).map((product) => (
+                        <Product product={product} key={product.id} />
+                    ))}
                 </div>
 
                 {/* DRINKS */}
                 <div className={`bg-[#ce2816] ${categoryBanner}`}>
                     <div className=' text-[#f7f1e7] text-4xl'>Beverages</div>
                 </div>
+
                 <div className={`${categoryGrid}`}>
-                    {drinkCategories.map((drink, i) => {
-                        return (
-                            <div className={`${categoryGallery}`} key={i} >
-                                <div className={`${itemImage}`}>
-                                    <Image
-                                        src={drink.image}
-                                        alt="X"
-                                        className='w-full'
-                                    />
-                                </div>
-                                
-                                <div className={`${itemText}`}>
-                                    {drink.name}
-                                </div>
-                            </div> 
-                        )
-                    })}  
+                    {products.slice(19,27).map((product) => (
+                        <Product product={product} key={product.id} />
+                    ))}
                 </div>
 
                 {/* SIDES */}
@@ -386,23 +351,9 @@ function Menu() {
                 </div>
 
                 <div className={`${categoryGrid}`}>
-                    {snackCategories.map((snack, i) => {
-                        return (
-                            <div className={`${categoryGallery}`} key={i} >
-                                <div className={`${itemImage}`}>
-                                    <Image
-                                        src={snack.image}
-                                        alt="X"
-                                        className='w-full'
-                                    />
-                                </div>
-                                
-                                <div className={`${itemText}`}>
-                                    {snack.name}
-                                </div>
-                            </div> 
-                        )
-                    })}  
+                    {products.slice(27,34).map((product) => (
+                        <Product product={product} key={product.id} />
+                    ))}
                 </div>
 
                 {/* SALADS */}
@@ -411,23 +362,9 @@ function Menu() {
                 </div>
 
                 <div className={`${categoryGrid}`}>
-                    {saladCategories.map((salad, i) => {
-                        return (
-                            <div className={`${categoryGallery}`} key={i} >
-                                <div className={`${itemImage}`}>
-                                    <Image
-                                        src={salad.image}
-                                        alt="X"
-                                        className='w-full'
-                                    />
-                                </div>
-                                
-                                <div className={`${itemText}`}>
-                                    {salad.name}
-                                </div>
-                            </div> 
-                        )
-                    })}  
+                    {products.slice(34,42).map((product) => (
+                        <Product product={product} key={product.id} />
+                    ))}
                 </div>
 
                 {/* DESSERTS */} 
@@ -436,23 +373,9 @@ function Menu() {
                 </div>
 
                 <div className={`${categoryGrid}`}>
-                    {dessertCategories.map((dessert, i) => {
-                        return (
-                            <div className={`${categoryGallery}`} key={i} >
-                                <div className={`${itemImage}`}>
-                                    <Image
-                                        src={dessert.image}
-                                        alt="X"
-                                        className='w-full'
-                                    />
-                                </div>
-                                
-                                <div className={`${itemText}`}>
-                                    {dessert.name}
-                                </div>
-                            </div> 
-                        )
-                    })}  
+                    {products.slice(42,50).map((product) => (
+                        <Product product={product} key={product.id} />
+                    ))}
                 </div>
 
                 <div className='w-full h-6 xl:h-16'></div>

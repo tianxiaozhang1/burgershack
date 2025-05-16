@@ -34,7 +34,7 @@ export default function CartItem({ item }) {
   return (
     <div className={`flex items-center gap-4 mb-3 `}>
       {/* <p className="text-4xl">{emoji}</p> */}
-      <Image alt="delete icon" src={image} className="w-1/6" />
+      <Image alt="food" src={image} className="w-1/6" />
       {/* width={40} height={40} */}
       <div className="flex items-center">
         <div className={`${bkReg.className}`}>{name}</div>

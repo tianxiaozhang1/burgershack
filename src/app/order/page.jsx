@@ -8,7 +8,7 @@ import localFont from 'next/font/local'
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 
-import { burgers, chickens, desserts, drinks, salads, snacks } from '../../data/products'
+import { products } from '../../data/products'
 import Product from '../../components/Product'
 
 import { Graduate, Patua_One, Inter } from 'next/font/google'
@@ -25,7 +25,7 @@ const categoryBanner = "h-18 lg:h-22 xl:h-32 2xl:h-42 text-2xl lg:text-3xl xl:te
 // const itemImage = "h-26 md:h-20 lg:h-42 flex items-end"
 // const itemText = `leading-5 md:text-xl text-center mt-2 md:mt-4 md:mb-22 lg:mt-4 lg:mb-8 ${patua_one.className}`
 // const categoryGallery = "max-w-56 md:max-w-72 lg:max-w-72 cursor-pointer bg-[#4c2216] rounded-3xl"
-const orderGallery = "grid grid-cols-2 lg:grid-cols-4 lg:max-w-[1600px] place-center flex-wrap mt-10 lg:mt-12 mx-auto justify-center gap-4"
+const orderGallery = "grid grid-cols-2 lg:grid-cols-4 lg:max-w-[1600px] place-center flex-wrap mt-10 lg:mt-12 mx-auto justify-center gap-4 lg:mb-12"
 
 function Order() {
 
@@ -41,8 +41,8 @@ function Order() {
                 </div>
 
                 <div className={`${orderGallery}`}>
-                    {burgers.map((product) => (
-                        <Product product={product} key={product.id} />
+                    {products.slice(0,12).map((product) => (
+                        <Product product={product} key={product.id} displayOrderOptions={true} />
                     ))}
                 </div>
 
@@ -54,8 +54,8 @@ function Order() {
                 </div>
 
                 <div className={`${orderGallery}`}>
-                    {chickens.map((product) => (
-                        <Product product={product} key={product.id} />
+                    {products.slice(12,19).map((product) => (
+                        <Product product={product} key={product.id} displayOrderOptions={true} />
                     ))}
                 </div>
 
@@ -67,8 +67,8 @@ function Order() {
                 </div>
 
                 <div className={`${orderGallery}`}>
-                    {drinks.map((product) => (
-                        <Product product={product} key={product.id} />
+                    {products.slice(19,27).map((product) => (
+                        <Product product={product} key={product.id} displayOrderOptions={true} />
                     ))}
                 </div>
 
@@ -80,8 +80,8 @@ function Order() {
                 </div>
 
                 <div className={`${orderGallery}`}>
-                    {snacks.map((product) => (
-                        <Product product={product} key={product.id} />
+                    {products.slice(27,34).map((product) => (
+                        <Product product={product} key={product.id} displayOrderOptions={true} />
                     ))}
                 </div>
 
@@ -93,8 +93,8 @@ function Order() {
                 </div>
 
                 <div className={`${orderGallery}`}>
-                    {salads.map((product) => (
-                        <Product product={product} key={product.id} />
+                    {products.slice(34,42).map((product) => (
+                        <Product product={product} key={product.id} displayOrderOptions={true} />
                     ))}
                 </div>
 
@@ -106,8 +106,8 @@ function Order() {
                 </div>
 
                 <div className={`${orderGallery}`}>
-                    {desserts.map((product) => (
-                        <Product product={product} key={product.id} />
+                    {products.slice(42,50).map((product) => (
+                        <Product product={product} key={product.id} displayOrderOptions={true} />
                     ))}
                 </div>
 

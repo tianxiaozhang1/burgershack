@@ -153,7 +153,8 @@ import Dessert8 from '../images/desserts/dessert8.png'
 //   },
 // ];
 
-export const burgers = [
+export const products = [
+  // BURGERS
   { id: 1, name: "Double Cheeseburger", price: "899", image: Burger1, currency: "CAD", cals: 785 },
   { id: 2, name: "Double Cheese Burger", price: "1099", image: Burger2, currency: "CAD", cals: 921 },
   { id: 3, name: "Big Monster", price: "999", image: Burger3, currency: "CAD", cals: 1050 },
@@ -166,19 +167,17 @@ export const burgers = [
   { id: 10, name: "Monster Jr Cheese", price: "799", image: Burger10, currency: "CAD", cals: 730 },
   { id: 11, name: "Monster Jr Gluten Free", price: "899", image: Burger11, currency: "CAD", cals: 790 },
   { id: 12, name: "Bacon Monster", price: "999", image: Burger12, currency: "CAD", cals: 945 },
-];
 
-export const chickens = [
-  { id: 11, name: "Crispy Chicken Cheese", price: "999", image: Chicken1, currency: "CAD", cals: 810 },
-  { id: 12, name: "Crispy Chicken", price: "799", image: Chicken2, currency: "CAD", cals: 735 },
-  { id: 13, name: "Tendercrisp Cheese", price: "1099", image: Chicken3, currency: "CAD", cals: 950 },
-  { id: 14, name: "Chicken Tendercrisp", price: "899", image: Chicken4, currency: "CAD", cals: 788 },
-  { id: 15, name: "Chili Cheese Chicken", price: "999", image: Chicken5, currency: "CAD", cals: 892 },
-  { id: 16, name: "Texas Chicken", price: "799", image: Chicken6, currency: "CAD", cals: 711 },
-  { id: 17, name: "Long Chicken", price: "899", image: Chicken7, currency: "CAD", cals: 765 },
-];
+  // CHICKEN
+  { id: 13, name: "Crispy Chicken Cheese", price: "999", image: Chicken1, currency: "CAD", cals: 810 },
+  { id: 14, name: "Crispy Chicken", price: "799", image: Chicken2, currency: "CAD", cals: 735 },
+  { id: 15, name: "Tendercrisp Cheese", price: "1099", image: Chicken3, currency: "CAD", cals: 950 },
+  { id: 16, name: "Chicken Tendercrisp", price: "899", image: Chicken4, currency: "CAD", cals: 788 },
+  { id: 17, name: "Chili Cheese Chicken", price: "999", image: Chicken5, currency: "CAD", cals: 892 },
+  { id: 18, name: "Texas Chicken", price: "799", image: Chicken6, currency: "CAD", cals: 711 },
+  { id: 19, name: "Long Chicken", price: "899", image: Chicken7, currency: "CAD", cals: 765 },
 
-export const drinks = [
+  // DRINKS
   { id: 21, name: "Soft Drink", price: "149", image: Drink1, currency: "CAD", cals: 155 },
   { id: 22, name: "Fuzetea", price: "199", image: Drink2, currency: "CAD", cals: 150 },
   { id: 23, name: "Coffee", price: "199", image: Drink3, currency: "CAD", cals: 105 },
@@ -187,9 +186,8 @@ export const drinks = [
   { id: 26, name: "Hot Chocolate", price: "199", image: Drink6, currency: "CAD", cals: 295 },
   { id: 27, name: "Latte", price: "199", image: Drink7, currency: "CAD", cals: 220 },
   { id: 28, name: "Tea", price: "199", image: Drink8, currency: "CAD", cals: 115 },
-];
 
-export const snacks = [
+  // SNACKS
   { id: 31, name: "Cheesy Onion Fries", price: "299", image: Snack1, currency: "CAD", cals: 315 },
   { id: 32, name: "Chili Cheese Fries", price: "299", image: Snack2, currency: "CAD", cals: 255 },
   { id: 33, name: "Mozzarella sticks", price: "299", image: Snack3, currency: "CAD", cals: 380 },
@@ -197,9 +195,8 @@ export const snacks = [
   { id: 35, name: "Chicken Nuggets + Dip", price: "299", image: Snack5, currency: "CAD", cals: 340 },
   { id: 36, name: "Plant-based Nuggets + Dip", price: "249", image: Snack6, currency: "CAD", cals: 290 },
   { id: 37, name: "Chilli Cheese Bites", price: "299", image: Snack7, currency: "CAD", cals: 325 },
-];
 
-export const salads = [
+  // SALADS
   { id: 41, name: "Beef wrap", price: "799", image: Salad1, currency: "CAD", cals: 475 },
   { id: 42, name: "Vege wrap", price: "749", image: Salad2, currency: "CAD", cals: 490 }, 
   { id: 43, name: "Halloumi wrap", price: "799", image: Salad3, currency: "CAD", cals: 460 }, 
@@ -208,9 +205,8 @@ export const salads = [
   { id: 46, name: "Chicken Salad", price: "649", image: Salad6, currency: "CAD", cals: 355 }, 
   { id: 47, name: "Delight Salad", price: "699", image: Salad7, currency: "CAD", cals: 390 }, 
   { id: 48, name: "Halloumi Salad", price: "649", image: Salad8, currency: "CAD", cals: 310 }, 
-];
 
-export const desserts = [
+  // DESSERTS
   { id: 51, name: "Mini Churros with Caramel Sauce", price: "699", image: Dessert1, currency: "CAD", cals: 472 },
   { id: 52, name: "Mini Churros with Strawberry Sauce", price: "649", image: Dessert2, currency: "CAD", cals: 495 },
   { id: 53, name: "Mini Churros with Chocolate Sauce", price: "699", image: Dessert3, currency: "CAD", cals: 458 },
@@ -220,3 +216,56 @@ export const desserts = [
   { id: 57, name: "Milkshake Nesquik®", price: "699", image: Dessert7, currency: "CAD", cals: 452 },
   { id: 58, name: "Strawberry Milkshake", price: "649", image: Dessert8, currency: "CAD", cals: 487 },
 ];
+
+// export const chickens = [
+//   { id: 13, name: "Crispy Chicken Cheese", price: "999", image: Chicken1, currency: "CAD", cals: 810 },
+//   { id: 14, name: "Crispy Chicken", price: "799", image: Chicken2, currency: "CAD", cals: 735 },
+//   { id: 15, name: "Tendercrisp Cheese", price: "1099", image: Chicken3, currency: "CAD", cals: 950 },
+//   { id: 16, name: "Chicken Tendercrisp", price: "899", image: Chicken4, currency: "CAD", cals: 788 },
+//   { id: 17, name: "Chili Cheese Chicken", price: "999", image: Chicken5, currency: "CAD", cals: 892 },
+//   { id: 18, name: "Texas Chicken", price: "799", image: Chicken6, currency: "CAD", cals: 711 },
+//   { id: 19, name: "Long Chicken", price: "899", image: Chicken7, currency: "CAD", cals: 765 },
+// ];
+
+// export const drinks = [
+//   { id: 21, name: "Soft Drink", price: "149", image: Drink1, currency: "CAD", cals: 155 },
+//   { id: 22, name: "Fuzetea", price: "199", image: Drink2, currency: "CAD", cals: 150 },
+//   { id: 23, name: "Coffee", price: "199", image: Drink3, currency: "CAD", cals: 105 },
+//   { id: 24, name: "Flat White", price: "199", image: Drink4, currency: "CAD", cals: 188 },
+//   { id: 25, name: "Cappuccino", price: "199", image: Drink5, currency: "CAD", cals: 250 },
+//   { id: 26, name: "Hot Chocolate", price: "199", image: Drink6, currency: "CAD", cals: 295 },
+//   { id: 27, name: "Latte", price: "199", image: Drink7, currency: "CAD", cals: 220 },
+//   { id: 28, name: "Tea", price: "199", image: Drink8, currency: "CAD", cals: 115 },
+// ];
+
+// export const snacks = [
+//   { id: 31, name: "Cheesy Onion Fries", price: "299", image: Snack1, currency: "CAD", cals: 315 },
+//   { id: 32, name: "Chili Cheese Fries", price: "299", image: Snack2, currency: "CAD", cals: 255 },
+//   { id: 33, name: "Mozzarella sticks", price: "299", image: Snack3, currency: "CAD", cals: 380 },
+//   { id: 34, name: "Onion Rings", price: "249", image: Snack4, currency: "CAD", cals: 210 },
+//   { id: 35, name: "Chicken Nuggets + Dip", price: "299", image: Snack5, currency: "CAD", cals: 340 },
+//   { id: 36, name: "Plant-based Nuggets + Dip", price: "249", image: Snack6, currency: "CAD", cals: 290 },
+//   { id: 37, name: "Chilli Cheese Bites", price: "299", image: Snack7, currency: "CAD", cals: 325 },
+// ];
+
+// export const salads = [
+//   { id: 41, name: "Beef wrap", price: "799", image: Salad1, currency: "CAD", cals: 475 },
+//   { id: 42, name: "Vege wrap", price: "749", image: Salad2, currency: "CAD", cals: 490 }, 
+//   { id: 43, name: "Halloumi wrap", price: "799", image: Salad3, currency: "CAD", cals: 460 }, 
+//   { id: 44, name: "BBQ chicken wrap", price: "749", image: Salad4, currency: "CAD", cals: 495 }, 
+//   { id: 45, name: "BBQ Plant-Based Long Chicken Wrap", price: "799", image: Salad5, currency: "CAD", cals: 488 }, 
+//   { id: 46, name: "Chicken Salad", price: "649", image: Salad6, currency: "CAD", cals: 355 }, 
+//   { id: 47, name: "Delight Salad", price: "699", image: Salad7, currency: "CAD", cals: 390 }, 
+//   { id: 48, name: "Halloumi Salad", price: "649", image: Salad8, currency: "CAD", cals: 310 }, 
+// ];
+
+// export const desserts = [
+//   { id: 51, name: "Mini Churros with Caramel Sauce", price: "699", image: Dessert1, currency: "CAD", cals: 472 },
+//   { id: 52, name: "Mini Churros with Strawberry Sauce", price: "649", image: Dessert2, currency: "CAD", cals: 495 },
+//   { id: 53, name: "Mini Churros with Chocolate Sauce", price: "699", image: Dessert3, currency: "CAD", cals: 458 },
+//   { id: 54, name: "Caramel Sundae", price: "649", image: Dessert4, currency: "CAD", cals: 481 },
+//   { id: 55, name: "Chocolate Sundae", price: "699", image: Dessert5, currency: "CAD", cals: 466 },
+//   { id: 56, name: "Sundae", price: "649", image: Dessert6, currency: "CAD", cals: 499 },
+//   { id: 57, name: "Milkshake Nesquik®", price: "699", image: Dessert7, currency: "CAD", cals: 452 },
+//   { id: 58, name: "Strawberry Milkshake", price: "649", image: Dessert8, currency: "CAD", cals: 487 },
+// ];

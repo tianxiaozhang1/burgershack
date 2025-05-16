@@ -1,12 +1,9 @@
 "use client"
-import React, { useState, useContext } from "react";
-// import { createContext } from 'react';
-// import { useRouter } from "next/navigation";
-// import { UserContext } from '../../components/OrderContext';
+import React, { useState, useEffect, useTransition } from "react";
+// , useContext
+import { useRouter } from 'next/navigation';
 
 import Link from 'next/link'
-// import Image from "next/image";
-// import Form from 'next/form'
 
 import { formatCurrencyString } from "use-shopping-cart";
 import { useShoppingCart } from "use-shopping-cart";
@@ -15,19 +12,12 @@ import localFont from 'next/font/local'
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import CheckoutItem from '../../components/CheckoutItem'
-// import OrderContext from '../../components/OrderContext'
-// import { products } from '../../data/products'
-// import Product from '../../components/Product'
-// import ShoppingCart from '../../components/ShoppingCart'
-// import CheckoutPart from '../../components/CheckoutPart'
-// import { useTheme } from '../../components/OrderContext';
-
-// import card1 from '../../images/card1a.png'
 
 import DoorDashIcon from '../../images/icons/DoorDashIcon'
 import GrubHubIcon from '../../images/icons/GrubHubIcon'
 import SkipDishesIcon from '../../images/icons/SkipDishesIcon'
 import UberEatsIcon from '../../images/icons/UberEatsIcon'
+
 
 const MasterCardIcon = () => {
     return (
@@ -88,7 +78,10 @@ const AMEXIcon = () => {
     )
 }
 
-import { Graduate, Patua_One, Inter } from 'next/font/google'
+import { Patua_One, Inter } from 'next/font/google'
+// Graduate, 
+
+import { addSingleTransaction } from '../lib/actions';
 
 const inter = Inter({ subsets: ['latin'], weight: ['400'], })
 const patua_one = Patua_One({ subsets: ['latin'], weight: ['400'], })
@@ -106,57 +99,102 @@ const locationButton = `-mt-0.25 lg:mt-0 pt-0.25 lg:pt-0 py-0.5 text-xs lg:text-
 
 function Checkout() {
     const { shouldDisplayCart, cartCount, cartDetails, totalPrice, clearCart } = useShoppingCart();
-
-    // const [theme, setTheme] = useState("YYYYY");
+    const router = useRouter();
 
     const [deliveryOption, setDeliveryOption] = useState(0)
     const [deliveryTime, setDeliveryTime] = useState(0)
     const [paymentOption, setPaymentOption] = useState(0)
-
-    const [orderBag, setOrderBag] = useState("")
-
-    // const [cartCountCopy, setCartCountCopy] = useState(cartCount);
-    // const [cartDetailsCopy, setCartDetailsCopy] = useState(cartDetails);
-    // const [totalPriceCopy, setTotalPriceCopy] = useState(totalPrice);
-
-    const handleSubmit = () => {
-        // e.preventDefault();
-        // setUserInput(input);
-        localStorage.setItem("deliveryOption", JSON.stringify(deliveryOption));
-        localStorage.setItem("deliveryTime", JSON.stringify(deliveryTime));
-        localStorage.setItem("paymentOption", JSON.stringify(paymentOption));
-        localStorage.setItem("userAddress", JSON.stringify(userAddress));
-        localStorage.setItem("userCity", JSON.stringify(userCity));
-        localStorage.setItem("userPostalCode", JSON.stringify(userPostalCode));
-        localStorage.setItem("locationAddress", JSON.stringify(locationAddress));
-        // localStorage.setItem("cartDetailsCopy", JSON.stringify(cartDetailsCopy));
-
-        // clearCart
-    };
-
     const [userAddress, setUserAddress] = useState('465 New Street');
-    // const [userAddress2, setUserAddress2] = useState('');
     const [userCity, setUserCity] = useState('Toronto');
     const [userPostalCode, setUserPostalCode] = useState('M7D 9A6');
-
     const [locationAddress, setLocationAddress] = useState('10 Dundas St E Toronto, ON M5B 2G9');
+    const [locationTel, setLocationTel] = useState('416-326-8978');
 
-    // const handleAddressChange = (e) => {
-    //   setUserAddress(e.target.value);
-    // };
+    const [isPending, startTransition] = useTransition();
+    const [statusMessage, setStatusMessage] = useState(null);
+    // State to hold the data for the single transaction you want to save
+    const [singleTransactionData, setSingleTransactionData] = useState({
+        customer_id: '1234',
+        delivery_method: deliveryOption,
+        // Assuming cartDetails and totalPrice are available in the component's scope
+        items: [], // Initialize with empty array
+        item_amounts: [], // Initialize with empty array
+        item_prices: [], // Initialize with empty array
+        total_amount: 0, // Initialize with 0
+        tax: 0, // Initialize with 0
+        total_with_tax: 0, // Initialize with 0
+        date: new Date().toISOString(),
+        payment_method: paymentOption,
+        location_add: locationAddress,
+        location_tel: locationTel,
+        customer_add: userAddress + " ," + userCity + ", ON, " + userPostalCode
+    });
 
-    // const handleAddress2Change = (e) => {
-    //     setUserAddress2(e.target.value);
-    //   };
-  
-    // const handleCityChange = (e) => {
-    //   setUserCity(e.target.value);
-    // };
-  
-    // const handlePostalCodeChange = (e) => {
-    //   setUserPostalCode(e.target.value);
-    // };
-  
+    useEffect(() => {
+        // Make sure cartDetails and totalPrice are available before mapping
+        if (cartDetails && typeof totalPrice === 'number') {
+           setSingleTransactionData(prevState => ({
+             ...prevState, // Copy all existing properties
+             delivery_method: deliveryOption,
+             items: Object.values(cartDetails).map(item => item.name),
+             item_amounts: Object.values(cartDetails).map(item => item.quantity),
+             item_prices: Object.values(cartDetails).map(item => item.value), // Assuming 'value' is the price property
+             total_amount: totalPrice,
+             tax: Math.round(totalPrice*0.13),
+             total_with_tax: Math.round(totalPrice*1.13),
+             date: new Date().toISOString(), // Update date on each change or set it once
+             payment_method: paymentOption,
+             location_add: locationAddress,
+             location_tel: locationTel,
+             customer_add: userAddress + " ," + userCity + ", ON, " + userPostalCode
+           }));
+        }
+    }, [deliveryOption, paymentOption, locationAddress, locationTel, userAddress, userCity, userPostalCode, cartDetails, totalPrice]); // Add cartDetails and totalPrice dependencies if they can change
+
+    const handleDeliveryMethodChange = (newMethod) => {
+        setDeliveryOption(newMethod);
+    };
+
+    const handlePaymentMethodChange = (newMethod) => {
+        setPaymentOption(newMethod);
+    };
+
+    const handleLocationAddressChange = (newMethod) => {
+        setLocationAddress(newMethod);
+    };
+
+    const handleLocationTelChange = (newMethod) => {
+        setLocationTel(newMethod);
+    };
+
+    const handleCheckout = async () => {
+        setStatusMessage(null);
+
+        // Get the current transaction data state
+        const transactionToSave = {
+             ...singleTransactionData,
+             // Ensure date is current right before saving if needed
+             date: new Date().toISOString(),
+        };
+
+        startTransition(async () => {
+            // Call the server action
+            const result = await addSingleTransaction(transactionToSave);
+
+            if (result?.message) {
+                // Handle error case
+                setStatusMessage({ type: 'error', text: result.message });
+            } else if (result?.success) {
+                // Handle success case
+                console.log("Transaction successful:", result.success);
+                setStatusMessage({ type: 'success', text: `Transaction recorded successfully! ID: ${result.success.id}` });
+
+                // Redirect to the success page and pass the transaction data in state
+                router.push(`/success?id=${result.success.id}`);
+            }
+        });
+    };
+
     return (
         // <OrderContext.Provider value={{ theme, setTheme }}>
             <div className='bg-[#f7f1e7] '>
@@ -382,11 +420,11 @@ function Checkout() {
                         
                     </div>
 
-                    <Link target="_blank" href="/success">
-                        <div className="flex justify-center">
-                            <div className={`px-12 py-4 lg:py-6 -mt-1 mb-1 bg-[#4c2216] text-[#f7f1e7] text-xl lg:text-2xl rounded-3xl ${bkReg.className}` } onClick={()=>{handleSubmit()}}>Order</div>
+                    {/* <Link target="_blank" href="/success"> */}
+                        <div className="flex justify-center " >
+                            <div className={`cursor-pointer px-12 py-4 lg:py-6 -mt-1 mb-1 bg-[#4c2216] text-[#f7f1e7] text-xl lg:text-2xl rounded-3xl ${bkReg.className}` } onClick={handleCheckout}>Order</div>
                         </div>
-                    </Link>
+                    {/* </Link> */}
                 </div>
 
                 <Footer/>
