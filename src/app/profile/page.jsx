@@ -142,7 +142,7 @@ export default async function Profile() {
             <div className='w-full'>
 
                 {/* Profile Banner */}
-                <div className={`${bkBold.className}`}>
+                <div className={`${bkReg.className}`}>
                     <div className={`bg-[#4c2216] ${categoryBanner} text-[#f7f1e7]`}>
                          My Profile
                     </div>
@@ -152,7 +152,7 @@ export default async function Profile() {
                 <div className='lg:max-w-[1600px] mx-auto mb-8 px-4 lg:px-0'> {/* Added horizontal padding for smaller screens */}
 
                     {/* --- User Information Section --- */}
-                    <div className={`${bkBold.className} mt-6`}> {/* Added margin-top */}
+                    <div className={`${bkReg.className} mt-6`}> {/* Added margin-top */}
                          <div className={`bg-[#4c2216] lg:w-[800px] my-4 mx-auto text-[#f7f1e7] cursor-default ${sectionHeaderCSS}`}> {/* Consistent header style */}
                              Account Information
                          </div>
@@ -173,7 +173,7 @@ export default async function Profile() {
 
 
                     {/* --- Order History Section --- */}
-                    <div className={`${bkBold.className}`}>
+                    <div className={`${bkReg.className}`}>
                         <div className={`bg-[#318636] lg:w-[800px] my-4 mx-auto text-white cursor-default ${sectionHeaderCSS}`}>
                             Order History
                         </div>
